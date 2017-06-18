@@ -1,50 +1,174 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><link rel="stylesheet" href="css/admin.css" />
-<title>Nuovo utente</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  </head>
-  <body>
 
-<div class="topnav">
-  <a  href="home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-  <a href="login">Login</a>
-  <a class="active" href="#about">Sign-up</a>
-  <a href="admin">Amministratore</a>
-</div>
-<form action="#" th:action="@{/user}" th:object="${user}"
-		method="post">
-					<div>
-				<span th:text="#{label.firstName}">FirstName: </span> <span><input
-					type="text" th:field="*{firstName}" /></span> <span
-					th:if="${#fields.hasErrors('firstName')}" th:text="#{label.mandatory}">Error</span>
+<head>
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png" />
+<link rel="icon" type="image/png" href="img/apple-touch-icon.png" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>Galleria/User</title>
+
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+	name='viewport' />
+<meta name="viewport" content="width=device-width" />
+
+<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="css/gsdk.css" rel="stylesheet" />
+<link href="css/demo.css" rel="stylesheet" />
+<link href="css/siw.css" rel="stylesheet" />
+<!--     Font Awesome     -->
+<link href="vendor/bootstrap/css/font-awesome.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Grand+Hotel'
+	rel='stylesheet' type='text/css' />
+
+</head>
+
+<body id="page-top" style="background-image: url('https://www.premioceleste.it/_files/opere/2013_53521_199648.jpg')">
+
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i
+						class="fa fa-bars"></i>
+				</button>
+				
 			</div>
-			<div>
-				<span th:text="#{label.lastName}">LastName: </span> <span><input
-					type="text" th:field="*{lastName}" /></span> <span
-					th:if="${#fields.hasErrors('lastName')}" th:text="#{label.mandatory}">Error</span>
-			</div>
-				<div>
-				<span th:text="#{label.age}">Age: </span> <span><input
-					type="text" th:field="*{age}" /></span> <span
-					th:if="${#fields.hasErrors('age')}" th:text="#{label.number}">Error</span>
-			</div>
-			<div>
-				<span th:text="#{label.username}">Username: </span> <span><input
-					type="text" th:field="*{username}" /></span> <span
-					  th:if="${#fields.hasErrors('username')}" th:text="#{label.usernameError}">Error--></span>
-			</div>
-			<div>
-				<span th:text="#{label.password}">Password: </span> <span><input
-					type="text" th:field="*{password}" /></span> <span
-					th:if="${#fields.hasErrors('password')}" th:text="#{label.passwordError}">Error</span>
-			</div>
-		<div>
-			<input type="submit" name="submit"/>
+			
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Homepage</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/opere">Opere</a></li>
+      <li><a href="/artista">Artista</a></li>
+     	<li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/user"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+			<!-- 
+			<div class="topnav">
+  			<ul class="nav navbar-nav navbar-left">
+ 				 <li><a class="page-scroll" href="/">Home</a></li>
+					<li><a class="page-scroll" href="/artista">Artista</a></li>
+					 <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
+					 <li><a class="page-scroll" href="/opere">Opere inserite</a></li>
+			 		<li><a class="page-scroll" href="/user">REGISTRATI</a></li>
+					<li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li> 
+				</ul>
+			</div>  -->
+			
 		</div>
-	</form>
+		
+	</nav>
+	<br></br><br></br><br></br><br></br><br></br><br></br>
+	
+<form class="form-horizontal" action="#" th:action="@{/user}" th:object="${user}"
+		method="post">
+		<div class="container">
+		<h1 class="text-center">
+				Registrazione
+				<p></p>
+		 <blockquote>Home/User</blockquote>
+			</h1>
+			</div>
+			<div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+					<p th:text="#{form.hasErrors}">Error Message</p>
+				</div>
+
+				<input type="hidden" th:field="*{id}" />
+				
+		<div>
+			<div class="form-group"
+					th:class="${#fields.hasErrors('firstName')} ? 'form-group has-error' : 'form-group'">
+					<label class="col-sm-2 control-label">Nome:</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" th:field="*{firstName}"
+							th:errorclass="has-error" /> <span class="help-block">
+							<ul>
+								<li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" />
+							</ul>
+						</span>
+					</div>
+				</div>
+			<div class="form-group"
+					th:class="${#fields.hasErrors('lastName')} ? 'form-group has-error' : 'form-group'">
+					<label class="col-sm-2 control-label">Cognome:</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" th:field="*{lastName}"
+							th:errorclass="has-error" /> <span class="help-block">
+							<ul>
+								<li th:each="err : ${#fields.errors('lastName')}" th:text="${err}" />
+							</ul>
+						</span>
+					</div>
+				</div>
+			<div class="form-group"
+					th:class="${#fields.hasErrors('age')} ? 'form-group has-error' : 'form-group'">
+					<label class="col-sm-2 control-label">Eta:</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" th:field="*{age}"
+							th:errorclass="has-error" /> <span class="help-block">
+							<ul>
+								<li th:each="err : ${#fields.errors('age')}" th:text="${err}" />
+							</ul>
+						</span>
+					</div>
+				</div>
+			<div>
+					<div class="form-group"
+					th:class="${#fields.hasErrors('username')} ? 'form-group has-error' : 'form-group'">
+					<label class="col-sm-2 control-label">Username:</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" th:field="*{username}"
+							th:errorclass="has-error" /> <span class="help-block">
+							<ul>
+								<li th:each="err : ${#fields.errors('username')}" th:text="${err}" />
+							</ul>
+						</span>
+					</div>
+				</div>
+			<div class="form-group"
+					th:class="${#fields.hasErrors('password')} ? 'form-group has-error' : 'form-group'">
+					<label class="col-sm-2 control-label">Password:</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" th:field="*{password}"
+							th:errorclass="has-error" /> <span class="help-block">
+							<ul>
+								<li th:each="err : ${#fields.errors('password')}" th:text="${err}" />
+							</ul>
+						</span>
+					</div>
+				</div>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-middle">
+					<button type="submit">Invia</button>
+					</ul>
+							</div></div>
+			</form>
+			
+			 <div class="footer">
+		<div class="overlayer">
+			<div class="container">
+				<div class="row">
+					<div class="credits">&copy; Giacomo Bonnani---Sorin Oancea</div>
+				</div>
+			</div>
+		</div>
+	</div>
+        
+	
+	
 	</body>
 </html>

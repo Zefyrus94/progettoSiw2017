@@ -7,14 +7,15 @@
 <link rel="stylesheet" href="css/index.css" />
     <title></title>
 </head>
-<body>
 <div class="topnav">
-  <a href="#news">Opere</a>
-  <a id="user" href="autori">Artisti</a>
-  <a href="#about">Percorso</a>
-  <a class="active" href="info" th:text="${user.username}" ></a>
-  <a href="login">Logout</a>
-  
+  <ul class="nav navbar-nav navbar-right">
+ 				 <li><a class="page-scroll" href="/">Home</a></li>
+					<li><a class="page-scroll" href="/artista">Artista</a></li>
+					 <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
+					 <li><a class="page-scroll" href="/opere">Opere inserite</a></li>
+			 		<li><a class="page-scroll" href="/user">REGISTRATI</a></li>
+					<li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li> 
+				</ul>
 </div>
 	<div>
     	<p th:text="'First name: ' + ${user.firstName}" />

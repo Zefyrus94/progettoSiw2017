@@ -16,103 +16,114 @@ import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.spring.model.Artista;
 import it.uniroma3.spring.model.Opera;
-//import it.uniroma3.spring.model.Stanza;
 import it.uniroma3.spring.service.ArtistaService;
 import it.uniroma3.spring.service.OperaService;
-//import it.uniroma3.spring.service.StanzaService;
+
+///////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////Al posto di stanza fare il catalogo o percorso//////////////////////
 
 @Controller
 public class OperaController  {
-//	@Autowired
-//	private StanzaService stanzaService;
-	@Autowired
-	private ArtistaService autoreService;
-	@Autowired
-	private OperaService operaService; 
+	
+    @Autowired
+    private OperaService operaService; 
+    @Autowired
+	private ArtistaService artistaService;
 
+    //pagina form per raccolta dati
+    @GetMapping("/opera")
+	public String mostraForm(Model model, Opera opera){
+		List<Artista> artista = (List<Artista>) artistaService.findAll();
+//		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("artista", artista);
+//		model.addAttribute("stanze",stanze);
+		return "opera/formO";
+	}
+    
+    //descrizione di una opera
+    @GetMapping("/opera/infoOpera")
+	public String mostraArtista(@RequestParam("id")long id, Model model){
+		Opera opera = operaService.findbyId(id);
+		model.addAttribute("opera", opera); 
+		return "opera/infoOpera";
+	}
 
-
-	@GetMapping("/opere")
-	public String showAutori(Model model){
+    //operazione di cancellazione sul opera
+    @GetMapping("opera/cancella")
+	public ModelAndView cancellaArtista(@RequestParam("id")long id, Model model){
+		operaService.delete(id);
+		return new ModelAndView("redirect:/opere");
+	}
+    
+    //opere gestite dal admin
+    @GetMapping("/opereAdmin")
+	public String mostraOpereAdmin(Model model){
+		List<Opera> opere = (List<Opera>) operaService.findAll();
+		model.addAttribute("opere", opere);
+		return "opera/opereA";
+	}
+    //autori di riferimento all opera
+    @GetMapping("/opere")
+	public String mostraArtisti(Model model){ //al posto di ShowArtista
 		List<Opera> opere = (List<Opera>) operaService.findAll();
 		model.addAttribute("opere", opere);
 		return "opera/opere";
 	}
-
-	@GetMapping("opera/cancella")
-	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
-		operaService.delete(id);
-		return new ModelAndView("redirect:/opere");
-	}
-	@GetMapping("/opera/resultsOpera")
-	public String showAutore(@RequestParam("id")long id, Model model){
-		Opera o = operaService.findbyId(id);
-		model.addAttribute("opera", o); 
-		return "opera/resultsOpera";
-	}
-
-
-
-	@GetMapping("/opera")
-	public String showForm(Model model, Opera opera){
-		List<Artista> autori = (List<Artista>) autoreService.findAll();
-		//List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
-		model.addAttribute("autori", autori);
-		//model.addAttribute("stanze",stanze);
-		return "opera/formOpera";
-	}
-
-	@PostMapping("/opera")
-	public String checkCustomerInfo(@Valid @ModelAttribute Opera opera, 
+/////////////////////////////////////////////Giacomo per commenti////////////////////////////	
+	//controllo post
+    @PostMapping("/opera")
+	public String controlloClienteInfo(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model) {
-		List<Artista> autori = (List<Artista>) autoreService.findAll();
-		//List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
-		model.addAttribute("autori", autori);
-		//model.addAttribute("stanze",stanze);
+		List<Artista> artisti = (List<Artista>) artistaService.findAll();
+//		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("artisti", artisti);
+//		model.addAttribute("stanze",stanze);
 		if (bindingResult.hasErrors()) {
-			return "opera/formOpera";
+			return "opera/formO";
 		}
 		else {
 
 			model.addAttribute(opera);
-			operaService.save(opera); 
+			operaService.add(opera); 
 		}
-		return "opera/resultsOpera";
+		return "opera/infoOpera";
 	}
-	@GetMapping("opera/modificaOpera")
+    
+    
+    //operazione di modifica opera
+	@GetMapping("/opera/modificaO")
 	public String modificaOpera2(Model model,@RequestParam("id")Long id) {
-		List<Artista> autori = (List<Artista>) autoreService.findAll();
-		//List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
-		model.addAttribute("autori", autori);
-		//model.addAttribute("stanze",stanze);
+		List<Artista> artisti = (List<Artista>) artistaService.findAll();
+//		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("autori", artisti);
+//		model.addAttribute("stanze",stanze);
 		Opera opera=operaService.findbyId(id);
 		model.addAttribute("opera",opera);
-		return "opera/modificaOpera";
+		return "opera/modificaO";
 	}
 
-	@PostMapping("opera/modificaOpera")
-	public String checkCustomer(@Valid @ModelAttribute Opera opera, 
+    //modidica
+	@PostMapping("/opera/modificaO")
+	public String controlloCliente(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model ){
-		List<Artista> autori = (List<Artista>) autoreService.findAll();
-		//List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
-		model.addAttribute("autori", autori);
-		//model.addAttribute("stanze",stanze);
+		List<Artista> artisti = (List<Artista>) artistaService.findAll();
+//		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("autori", artisti);
+//		model.addAttribute("stanze",stanze);
 		if (bindingResult.hasErrors()) {
-			return "opera/formOpera";
+			return "opera/modificaO";
 		}
 		else {
 			model.addAttribute(opera);
 			try{
 				operaService.add(opera);
 			}catch(Exception e){
-				return"opera/modificaOpera";
+				return"opera/modificaO";
 
 			}
 		}
-		return "opera/resultsOpera";
+		return "opera/infoOpera";
 	}
 }
-
-
-
-
+    
