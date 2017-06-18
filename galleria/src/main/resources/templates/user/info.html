@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+
+</style>
+<link rel="stylesheet" href="css/index.css" />
+    <title></title>
+</head>
+<body>
+<div class="topnav">
+  <a href="#news">Opere</a>
+  <a id="user" href="autori">Artisti</a>
+  <a href="#about">Percorso</a>
+  <a class="active" href="info" th:text="${user.username}" ></a>
+  <a href="login">Logout</a>
+  
+</div>
+	<div>
+    	<p th:text="'First name: ' + ${user.firstName}" />
+    </div>
+	<div>
+    	<p th:text="'Lastname: ' + ${user.lastName}" />
+    </div>
+	<div>
+    	<p th:text="'Age: ' + ${user.age}" />	
+    </div>
+	<div>
+    	<p th:text="'Username: ' + ${user.username}" />	
+    </div>
+    	<div>
+    	<p th:text="'Password: ' + ${user.password}" />	
+    </div>
+</body>
+</html>

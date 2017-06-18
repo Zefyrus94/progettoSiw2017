@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Nuovo artista</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="#" th:action="@{/artista}" th:object="${artista}"
+		method="post">
+		<div>
+			<div>
+				<span th:text="#{label.nome}">Nome: </span> <span><input
+					type="text" th:field="*{nome}" /></span> <span
+					th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.cognome}">Cognome: </span> <span><input
+					type="text" th:field="*{cognome}" /></span> <span
+					th:if="${#fields.hasErrors('cognome')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.nazionalita}">Nazionalita: </span> <span><input
+					type="text" th:field="*{nazionalita}" /></span> <span
+					th:if="${#fields.hasErrors('nazionalita')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.annoNascita}">AnnoNascita: </span>  <span><input
+					type="text" th:field="*{annoNascita}" /></span> 
+<!-- 					 <select id="anno"
+          			name="anno" >
+				    <option>January</option>      
+				    <option>February</option>      
+				    <option>March</option>      
+				    <option>April</option>      
+				    <option>May</option>      
+				    <option>June</option>      
+				    <option>July</option>      
+				    <option>August</option>      
+				    <option>September</option>      
+				    <option>October</option>      
+				    <option>November</option>      
+				    <option>December</option>      
+  					</select> --><span
+					th:if="${#fields.hasErrors('annoNascita')}"
+					th:text="#{label.data}">Error</span>
+			</div>
+			<span th:text="#{label.annoMorte}">AnnoMorte: </span> <span><input
+				type="text" th:field="*{annoMorte}" /></span> <span
+				th:if="${#fields.hasErrors('annoMorte')}" th:text="#{label.data}">Error</span>
+		</div>
+		<div>
+			<input type="submit" name="submit"/>
+		</div>
+	</form>
+	</body>
+</html>

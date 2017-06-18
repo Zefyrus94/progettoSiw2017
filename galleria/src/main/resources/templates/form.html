@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><link rel="stylesheet" href="css/admin.css" />
+<title>Nuovo utente</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+
+<div class="topnav">
+  <a  href="home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="login">Login</a>
+  <a class="active" href="#about">Sign-up</a>
+  <a href="admin">Amministratore</a>
+</div>
+<form action="#" th:action="@{/user}" th:object="${user}"
+		method="post">
+					<div>
+				<span th:text="#{label.firstName}">FirstName: </span> <span><input
+					type="text" th:field="*{firstName}" /></span> <span
+					th:if="${#fields.hasErrors('firstName')}" th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.lastName}">LastName: </span> <span><input
+					type="text" th:field="*{lastName}" /></span> <span
+					th:if="${#fields.hasErrors('lastName')}" th:text="#{label.mandatory}">Error</span>
+			</div>
+				<div>
+				<span th:text="#{label.age}">Age: </span> <span><input
+					type="text" th:field="*{age}" /></span> <span
+					th:if="${#fields.hasErrors('age')}" th:text="#{label.number}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.username}">Username: </span> <span><input
+					type="text" th:field="*{username}" /></span> <span
+					  th:if="${#fields.hasErrors('username')}" th:text="#{label.usernameError}">Error--></span>
+			</div>
+			<div>
+				<span th:text="#{label.password}">Password: </span> <span><input
+					type="text" th:field="*{password}" /></span> <span
+					th:if="${#fields.hasErrors('password')}" th:text="#{label.passwordError}">Error</span>
+			</div>
+		<div>
+			<input type="submit" name="submit"/>
+		</div>
+	</form>
+	</body>
+</html>

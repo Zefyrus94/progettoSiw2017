@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+  <head> <link rel="stylesheet" href="css/admin.css" />
+    <title>Amministratore</title>
+  </head>
+  <body>
+
+<div class="topnav">
+  <a  href="home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="signUp">Sign-up</a>
+  <a class="active" href="admin">Amministratore</a>
+</div>
+
+<!-- <div style="padding-left:16px">
+  <h2>Top Navigation Example</h2>
+  <p>Some content..</p>
+</div> -->
+  
+    <div>
+<div class = "container">
+	<div class="wrapper">
+		<form name="f" th:action="@{/admin}" method="post">    
+		    <h3 class="form-signin-heading"><font size="25">Welcome! Please Sign In</font></h3>
+		    <br></br>
+			<div th:if="${param.error}" class="alert alert-error">    
+            Invalid username and password.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success"> 
+            You have been logged out.
+            </div>
+			<input type="text" name="Username" placeholder="Username" />
+			<input type="password" name="Password" placeholder="Password" />     		  
+			 
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+		</form>			
+	</div>
+</div>
+    </div>
+  </body>
+</html>

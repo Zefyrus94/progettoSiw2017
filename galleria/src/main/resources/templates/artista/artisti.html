@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="css/artisti.css" />
+    <title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>artisti Inseriti</title>
+</head>
+<body>
+<div class="topnav">
+  <a href="#news">Opere</a>
+  <a class="active" href="artisti">Artisti</a>
+  <a href="#about">Percorso</a>
+  <a href="info" th:text="${user.username}" ></a>
+  <a href="login">Logout</a>
+  
+</div>
+<div style="text-align: center">
+	<br></br>
+	<br></br>
+	<h1>Elenco Artisti Ordinati Alfabeticamente<!--                                      <select
+					name="dropAnno" id="dropAnno"
+					th:field="*{artista.annoNascita}">
+					<option value="0">Order By</option>
+					<option value="dataNascita">dataNascita</option></select> -->
+</h1>
+<!-- 	<p>
+		<span th:text="#{label.nome}">Lista artisti</span>
+	</p> -->
+	<br></br>
+	<br></br>
+	<br></br>
+	<ul>
+		<th:foreach th:each="artista : ${artisti}">
+			<li><a th:text="${artista.nome} +' '+ ${artista.cognome}"
+				th:href="@{/artista/resultsartista(id=${artista.id})}"></a> <a
+				 th:href="@{/artista/cancella(id=${artista.id})}"> <span><!--  <input
+						type="submit" name="submit" value="cancella" />--></span></a></li> 
+		</th:foreach>
+	</ul>
+	<a th:href="@{/}"> <span><input
+						type="submit" name="submit" value="ritorna alla Home" /></span></a>
+</div>
+</body>
+</html>
