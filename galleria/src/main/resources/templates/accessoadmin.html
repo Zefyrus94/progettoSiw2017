@@ -26,7 +26,7 @@
 				<!-- start: Form Login user-->
 				<div align="center" class="span4">
 					<div class="title">
-						<h3>Login user</h3>
+						<h3>Login admin</h3>
 					</div>
 <br></br>
 <br></br>
@@ -43,7 +43,7 @@
 									<span th:if="${#fields.hasErrors('username')}">Errore: campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
-									<label for="password"><span>Password:</span></label>
+									<label for="password"><span>Password*:</span></label>
 									<div class="input">
 										<input tabindex="2" size="20" id="password" name="password" type="password"
 											th:field="*{password}" required="required" />
@@ -52,8 +52,8 @@
 								</div>
 
 								<div class="actions">
-									<button tabindex="3" type="submit" class="btn btn-succes btn-large">Autentica
-										user</button>
+									<button tabindex="3" type="submit" class="btn btn-succes btn-large">Authenticate
+										</button>
 								</div>
 							</fieldset>
 
@@ -62,86 +62,11 @@
 					</div>
 
 				</div>
-			
+			</div></div>
 <br></br>
 <br></br>
 <br></br>
-				<div class="span4">
-					<div align="center" class="title">
-						<h3>Register here!</h3>
-					</div>
-<br></br>
-<br></br>
-					<div align="center" id="contact-form">
-						<form action="#" th:action="@{/registrazione}" th:object="${user}" method="post">
-							<fieldset>
-								<div class="clearfix">
-									<label for="firstname"><span>Firstname*:</span></label>
-									<div class="input">
-										<input tabindex="1" size="20" id="firstname" name="firstname" type="text"
-											th:field="*{firstname}" required="required" />
-									</div>
-									<span th:if="${#fields.hasErrors('firstname')}">Errore: campo obbligatorio</span>
-								</div>
-								<div class="clearfix">
-									<label for="lastname"><span>Lastname*:</span></label>
-									<div class="input">
-										<input tabindex="1" size="20" id="lastname" name="lastname" type="text"
-											th:field="*{lastname}" required="required" />
-									</div>
-									<span th:if="${#fields.hasErrors('lastname')}">Errore: campo obbligatorio</span>
-								</div>
-								<div class="clearfix">
-									<label for="age"><span>Age*:</span></label>
-									<div class="input">
-										<input tabindex="1" size="20" id="age" name="age" type="text"
-											th:field="*{age}" required="required" />
-									</div>
-									<span th:if="${#fields.hasErrors('age')}">Errore: campo obbligatorio</span>
-								</div>
-								<div class="clearfix">
-									<label for="username"><span>Username*:</span></label>
-									<div class="input">
-										<input tabindex="4" size="20" id="username" name="username" type="text"
-											th:field="*{username}" required="required" />
-									</div>
-									<span th:if="${#fields.hasErrors('username')}">Errore: campo obbligatorio</span>
-								</div>
-								<div class="clearfix">
-									<label for="password"><span>Password*:</span></label>
-									<div class="input">
-										<input tabindex="5" size="20" id="password" name="password" type="password"
-											th:field="*{password}" required="required" />
-									</div>
-									<span th:if="${#fields.hasErrors('password')}">Errore</span>
-								</div>
 
-								<div class="actions">
-									<button tabindex="6" type="submit" class="btn btn-succes btn-large">Registra
-										user</button>
-								</div>
-							</fieldset>
-
-						</form>
-
-					</div>
-
-				</div>
-	
-<!-- 				<div class="span4" th:if="${errore} or ${successo}">
-					<div class="title">
-						<h3>Riepilogo Informazioni</h3>
-					</div>
-					<font size="3">
-					<span class="text-error" th:text="${errore}"></span><br/>
-					<span class="text-success" th:text="${successo}"></span>
-					</font>
-				</div> -->
-
-			</div>
-		</div>
-<br></br>
-<br></br>
 </font> 
 	</div>
 

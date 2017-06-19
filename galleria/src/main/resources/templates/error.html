@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<style>body {
+    background-color: 	#FFDAB9;
+}</style>
+    <meta charset="UTF-8"/>
+    <title th:text="${status}">404</title>
+
+    <link href="/webjars/materializecss/0.96.0/css/materialize.css" type="text/css" rel="stylesheet"
+          media="screen,projection"/>
+</head>
+<body>
+
+<div class="container-fluid">
+            <div class="navbar-header">
+            <div class="navbar-header">
+      			<a class="navbar-brand" >Midnight</a>
+   				 </div>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">Home</a>
+            </div>
+
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    
+                    <li>
+                        <a class="page-scroll" href="/user/artisti">Artists</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/citazioni">Quotes</a>
+                    </li>
+                     
+                    <li>
+                        <a class="page-scroll" href="/user/opere">Works of art</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="/accedi">Register here!</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/accedi">Login</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/accedi_admin">Administrator</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+											<a class="page-scroll" href="/logout">logout</a>			
+                    </li>
+                    
+                </ul>
+            </div></div>
+<div class="row">
+    <h1 align="center" class="indigo-text center" th:text="${error}">Not found</h1>
+
+    <p align="center" class="col s12 center" ><!-- th:text="${message}" -->
+     <font size="12">  The resource you are looking for doesn't exist!</font> 
+    </p>
+</div>
+</body>
+</html>

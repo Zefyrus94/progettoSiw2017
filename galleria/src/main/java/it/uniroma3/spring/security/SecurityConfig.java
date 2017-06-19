@@ -3,8 +3,12 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -56,7 +60,15 @@ auth.jdbcAuthentication().dataSource(dataSource)
 		.authoritiesByUsernameQuery("SELECT u.username, ruoli.ruolo authority " +
 				"FROM utenti u JOIN ruoli_utente ruoli ON u.id = ruoli.utente_id WHERE u.username = ?");
 	}
-	
+//	@Bean
+//	public EmbeddedServletContainerCustomizer containerCustomizer() {
+//	    return new EmbeddedServletContainerCustomizer() {
+//	        @Override
+//	        public void customize(ConfigurableEmbeddedServletContainer container) {
+//	            container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404.html"));
+//	        }
+//	    };
+//	}
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()

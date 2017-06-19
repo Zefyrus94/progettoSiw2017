@@ -42,26 +42,35 @@
 //}
 
 package it.uniroma3.spring.controller;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ResourceNotFoundException;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import it.uniroma3.spring.model.User;
 //import it.uniroma3.spring.service.GaraService;
 import it.uniroma3.spring.service.UserService;
 
-@Controller
+
+@ControllerAdvice
+//@Controller
 @SessionAttributes("current_username")
 public class MainController {
 
@@ -88,4 +97,6 @@ public class MainController {
 	public String accedia(@Valid @ModelAttribute User utente, Model model) {
 		return "accessoadmin";
 	}
+
+	
 }
