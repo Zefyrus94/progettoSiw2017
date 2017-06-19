@@ -62,7 +62,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Home</a>
+                <a class="navbar-brand page-scroll" href="/">Home</a>
             </div>
 
             
@@ -70,21 +70,24 @@
                 <ul class="nav navbar-nav navbar-left">
                     
                     <li>
-                        <a class="page-scroll" href="/artista">Artista</a>
+                        <a class="page-scroll" href="/user/artisti">Artists</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/citazioni">Citazioni</a>
+                        <a class="page-scroll" href="/citazioni">Quotes</a>
                     </li>
                      
                     <li>
-                        <a class="page-scroll" href="/opere">Opere</a>
+                        <a class="page-scroll" href="/user/opere">Works of art</a>
                     </li>
                     
                     <li>
-                        <a class="page-scroll" href="/user">Registrati</a>
+                        <a class="page-scroll" href="/accedi">Register here!</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/login">Autenticazione</a>
+                        <a class="page-scroll" href="/accedi">Login</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/log_admin">Administrator</a>
                     </li>
                     
                 </ul>
@@ -146,6 +149,52 @@
             </div>
         </div>
         
+        <div class="container">
+			<div class="row">
+				<!--start: Logo -->
+
+				<!--end: Logo -->
+				<!--start: Navbar -->
+				<div class="span9">
+					<div class="navbar navbar-inverse">
+						<div class="navbar-inner">
+							<div class="container">
+								<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+								</a>
+								<div class="nav-collapse collapse">
+									<ul class="nav">
+										<!--  Area Utenti -->
+										<li th:class="'dropdown '+ ${navAccesso}">
+											<ul class="dropdown-menu">
+												<li sec:authorize="!isAuthenticated()">
+													<div class="actions" align="center">
+														<form th:action="@{/accedi}" method="get">
+															<input id="accedi" type="submit" value="Login/Registrazione" />
+														</form>
+													</div>
+												</li>	
+											</ul></li>
+
+										<!--  Utente Autenticato -->
+										<li sec:authorize="isAuthenticated()">
+											<div class="contact-form">
+												Benvenuto, <b sec:authentication="name">[generic user]</b>!
+												<form action="/logout" method="post">
+													<div class="actions">
+														<input id="logout" type="submit" value="Logout" />
+													</div>
+												</form>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
         
     </section>
     <aside class="bg-dark">

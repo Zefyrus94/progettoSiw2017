@@ -43,6 +43,8 @@
 
 package it.uniroma3.spring.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -50,6 +52,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import it.uniroma3.spring.model.User;
@@ -65,7 +69,7 @@ public class MainController {
 //	@Autowired
 //	private GaraService garaService;
 
-	@GetMapping(value={"/user/hom","/home","/", "/utente", "/admin"})
+	@GetMapping(value={"/user/home","/home","/utente", "/admin"})
 	public String homepage(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
@@ -73,6 +77,10 @@ public class MainController {
 		    model.addAttribute(utente);
 		    model.addAttribute("current_username", utente.getUsername());
 		}
-		return "home";
+		return "index";
+	}
+	@RequestMapping("/log_admin")
+	public String accedi(@Valid @ModelAttribute User utente, Model model) {
+		return "login";
 	}
 }
