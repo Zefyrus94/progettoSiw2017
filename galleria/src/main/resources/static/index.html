@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -87,7 +88,11 @@
                         <a class="page-scroll" href="/accedi">Login</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/log_admin">Administrator</a>
+                        <a class="page-scroll" href="/accedi_admin">Administrator</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+											<a class="page-scroll" href="/logout">logout</a>
+										
                     </li>
                     
                 </ul>

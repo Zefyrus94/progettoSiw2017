@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
+import org.springframework.security.config.annotation.authentication.configurers.provisioning.InMemoryUserDetailsManagerConfigurer;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
@@ -30,10 +30,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+	private InMemoryUserDetailsManagerConfigurer<AuthenticationManagerBuilder>
+    inMemoryConfigurer() {
+	return new InMemoryUserDetailsManagerConfigurer<>();
+}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(dataSource)
+		inMemoryConfigurer()
+        .withUser("admin")
+            .password("admin")
+            .authorities("ROLE_ADMIN")
+.and().configure(auth);
+auth.jdbcAuthentication().dataSource(dataSource)
 		.passwordEncoder(new BCryptPasswordEncoder())
 		.usersByUsernameQuery("SELECT username, password, 1 FROM utenti WHERE username = ?")
 		.authoritiesByUsernameQuery("SELECT u.username, ruoli.ruolo authority " +
@@ -58,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.successHandler(loginSuccessHandler)
 		.and()
 		.authorizeRequests()
-		.antMatchers("/", "/accesso", "/logout", "../css/**", "../js/**","/log_admin").permitAll()
+		.antMatchers("/", "/accesso", "/logout", "../css/**", "../js/**","/log_admin","/accessoadmin").permitAll()
 		.antMatchers("/user/**").hasAnyRole("USER","ADMIN")
 		.antMatchers("/admin/**").hasRole("ADMIN")
 		.anyRequest().permitAll()

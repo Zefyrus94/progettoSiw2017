@@ -43,6 +43,7 @@
 
 package it.uniroma3.spring.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,24 +64,28 @@ import it.uniroma3.spring.service.UserService;
 @Controller
 @SessionAttributes("current_username")
 public class MainController {
-	
+
 	@Autowired
 	private UserService utenteService;
-//	@Autowired
-//	private GaraService garaService;
+	//	@Autowired
+	//	private GaraService garaService;
 
 	@GetMapping(value={"/user/home","/home","/utente", "/admin"})
 	public String homepage(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			User utente = utenteService.findByUsername(authentication.getName());
-		    model.addAttribute(utente);
-		    model.addAttribute("current_username", utente.getUsername());
+			model.addAttribute(utente);
+			model.addAttribute("current_username", utente.getUsername());
 		}
 		return "index";
 	}
 	@RequestMapping("/log_admin")
 	public String accedi(@Valid @ModelAttribute User utente, Model model) {
 		return "login";
+	}
+	@RequestMapping("/accedi_admin")
+	public String accedia(@Valid @ModelAttribute User utente, Model model) {
+		return "accessoadmin";
 	}
 }
