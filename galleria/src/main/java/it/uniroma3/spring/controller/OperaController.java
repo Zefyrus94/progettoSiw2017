@@ -32,7 +32,7 @@ public class OperaController  {
 	private ArtistaService artistaService;
 
     //pagina form per raccolta dati
-    @GetMapping("/opera")
+    @GetMapping("admin/opera")
 	public String mostraForm(Model model, Opera opera){
 		List<Artista> artista = (List<Artista>) artistaService.findAll();
 //		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
@@ -42,7 +42,7 @@ public class OperaController  {
 	}
     
     //descrizione di una opera
-    @GetMapping("/opera/infoOpera")
+    @GetMapping("opera/infoOpera")
 	public String mostraArtista(@RequestParam("id")long id, Model model){
 		Opera opera = operaService.findbyId(id);
 		model.addAttribute("opera", opera); 
@@ -50,21 +50,21 @@ public class OperaController  {
 	}
 
     //operazione di cancellazione sul opera
-    @GetMapping("opera/cancella")
+    @GetMapping("admin/opera/cancella")
 	public ModelAndView cancellaArtista(@RequestParam("id")long id, Model model){
 		operaService.delete(id);
 		return new ModelAndView("redirect:/opere");
 	}
     
     //opere gestite dal admin
-    @GetMapping("/opereAdmin")
+    @GetMapping("/admin/opereAdmin")
 	public String mostraOpereAdmin(Model model){
 		List<Opera> opere = (List<Opera>) operaService.findAll();
 		model.addAttribute("opere", opere);
 		return "opera/opereA";
 	}
     //autori di riferimento all opera
-    @GetMapping("/opere")
+    @GetMapping("/user/opere")
 	public String mostraArtisti(Model model){ //al posto di ShowArtista
 		List<Opera> opere = (List<Opera>) operaService.findAll();
 		model.addAttribute("opere", opere);
@@ -76,9 +76,7 @@ public class OperaController  {
 	public String controlloClienteInfo(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model) {
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
-//		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("artisti", artisti);
-//		model.addAttribute("stanze",stanze);
 		if (bindingResult.hasErrors()) {
 			return "opera/formO";
 		}
@@ -92,7 +90,7 @@ public class OperaController  {
     
     
     //operazione di modifica opera
-	@GetMapping("/opera/modificaO")
+	@GetMapping("/admin/opera/modificaO")
 	public String modificaOpera2(Model model,@RequestParam("id")Long id) {
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
 //		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
@@ -104,7 +102,7 @@ public class OperaController  {
 	}
 
     //modidica
-	@PostMapping("/opera/modificaO")
+	@PostMapping("/admin/opera/modificaO")
 	public String controlloCliente(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model ){
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();

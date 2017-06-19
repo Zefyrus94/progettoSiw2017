@@ -40,7 +40,7 @@ public class ArtistaController {
 	@Autowired
 	OperaService operaService;
 	/*gli artisti vengono ordinati*/
-	@GetMapping("/artisti")
+	@GetMapping("/user/artisti")
 	public String showartisti(@ModelAttribute User user,Model model){
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
 		Collections.sort(artisti);
@@ -58,7 +58,7 @@ public class ArtistaController {
 		return "artista/artisti";
 	}
 	
-    @GetMapping("/artista")
+    @GetMapping("/admin/artista")
     public String showForm(Artista artista) {
         return "artista/formartista";
     }

@@ -1,80 +1,62 @@
 package it.uniroma3.spring.model;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="users")
+@Table(name="utenti")
 public class User {
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
-	@NotNull
+	
+	//@NotNull
 	@Size(min=1)
-	private String firstName;
+	private String firstname;
 
-	@NotNull
+	//@NotNull
 	@Size(min=1)
-	private String lastName;
-
-	@NotNull
+	private String lastname;
+	//@NotNull
 	@Min(18)
 	private Integer age;
-	@NotNull
-//	@Size(min=8,max=32)
-	@Size(min=1)
 	@Column(unique = true)
 	private String username;
-	@NotNull
-//	@Size(min=8,max=32)
-	@Size(min=1)
+	
+	@Column(nullable = false)
 	private String password;
-	@OneToOne(cascade=CascadeType.ALL)
-	private Ruolo ruolo;
-	public User() {}
+	
+	@NotNull
+	@Column(nullable = false)
+	private boolean enabled;
+	
+//	@OneToOne(cascade = {CascadeType.PERSIST})
+//	private Atleta atletaGestito;
+//	@OneToOne(cascade = {CascadeType.PERSIST})
+//	private Societa societaGestita;
 
-	public User(String firstName, String lastName, Integer age) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.age = age;
-		this.ruolo=new Ruolo();
+	public boolean isEnabled(){
+		return enabled;
 	}
-
+	
+	public void setEnabled(boolean enabled){
+		this.enabled = enabled;
+	}
+	
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public Integer getAge() {
-		return age;
-	}
-
-	public void setAge(Integer age) {
-		this.age = age;
-	}
 	public String getUsername() {
 		return username;
 	}
@@ -90,27 +72,37 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	
+	
+
+//
 //	@Override
 //	public String toString() {
-//		return String.format(
-//				"user[id=%d, firstName='%s', lastName='%s',username='%s', password='%s', Role='%s']",
-//				id, firstName, lastName,username,password,ruolo);
+//		return "Utente [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+//				+ ", atletaGestito=" + atletaGestito + ", societaGestita=" + societaGestita + "]";
 //	}
-	
-	public Ruolo getRuolo() {
-		return ruolo;
-	}
-
-	public void setRuolo(Ruolo ruolo) {
-		this.ruolo = ruolo;
-	}
-	@Override
-	public String toString() {
-		return String.format(
-				"user[id=%d, firstName='%s', lastName='%s',username='%s', password='%s']",
-				id, firstName, lastName,username,password);
-	}
-
-
-
 }

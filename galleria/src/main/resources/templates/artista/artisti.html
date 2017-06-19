@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <link rel="stylesheet" href="css/artisti.css" />
     <title></title>
@@ -10,12 +11,12 @@
 <body>
 <div class="topnav">
   			<ul class="nav navbar-nav navbar-left">
- 				 <li><a class="page-scroll" href="/">Home</a></li>
-					<li><a class="page-scroll" href="/artista">Artista</a></li>
-					 <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
-					 <li><a class="page-scroll" href="/opere">Opere inserite</a></li>
-			 		<li><a class="page-scroll" href="/user">REGISTRATI</a></li>
-					<li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li> 
+ 				 <li><a class="page-scroll" href="/home">Home</a></li>
+<!-- 					<li><a class="page-scroll" href="/artista">Artista</a></li>
+					<li><a class="page-scroll" href="/opera">Opera da inserire</a></li> -->
+					 <li><a class="page-scroll" href="/user/opere">Opere</a></li>
+			 		<!-- <li><a class="page-scroll" href="/user/info" ><b sec:authentication="name">[generic user]</b></a></li> -->
+					<!-- <li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li>  -->
 				</ul>
 			</div>
 <div style="text-align: center">
@@ -41,8 +42,6 @@
 						type="submit" name="submit" value="cancella" />--></span></a></li> 
 		</th:foreach>
 	</ul>
-	<a th:href="@{/}"> <span><input
-						type="submit" name="submit" value="ritorna alla Home" /></span></a>
 </div>
 </body>
 </html>

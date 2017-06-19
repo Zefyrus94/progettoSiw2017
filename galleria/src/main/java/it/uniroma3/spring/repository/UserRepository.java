@@ -8,11 +8,11 @@ import it.uniroma3.spring.model.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 
-    List<User> findByLastName(String lastName);
-
-    List<User> findByFirstName(String lastName);
-    
-    List<User> findByAge(Integer age);
+//    List<User> findByLastName(String lastName);
+//
+//    List<User> findByFirstName(String lastName);
+//    
+//    List<User> findByAge(Integer age);
     
     User findByUsername(String username);
     

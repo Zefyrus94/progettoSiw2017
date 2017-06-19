@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <style>
@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/index.css" />
     <title></title>
 </head>
+<body>
 <div class="topnav">
   <ul class="nav navbar-nav navbar-right">
  				 <li><a class="page-scroll" href="/">Home</a></li>
@@ -18,10 +19,10 @@
 				</ul>
 </div>
 	<div>
-    	<p th:text="'First name: ' + ${user.firstName}" />
+    	<p th:text="'First name: ' + ${user.firstname}" />
     </div>
 	<div>
-    	<p th:text="'Lastname: ' + ${user.lastName}" />
+    	<p th:text="'Lastname: ' + ${user.lastname}" />
     </div>
 	<div>
     	<p th:text="'Age: ' + ${user.age}" />	
@@ -29,8 +30,6 @@
 	<div>
     	<p th:text="'Username: ' + ${user.username}" />	
     </div>
-    	<div>
-    	<p th:text="'Password: ' + ${user.password}" />	
-    </div>
+
 </body>
-</html>
+</html> 
