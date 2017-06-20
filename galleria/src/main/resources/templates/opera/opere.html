@@ -1,47 +1,20 @@
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-<meta charset="utf-8" />
-
-
+<link rel="stylesheet" href="css/accesso.css" />
+    <title></title>
 </head>
-
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				
-				<a class="navbar-brand page-scroll" href="/">HOME</a>
-			</div>
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/news">News</a>
+  <a href="/contacts">Contact</a>
+  <a class="active" href="accedi">Login/SignUp</a>
+ <!--  <a href="signUp">Sign-up</a> -->
+  <a sec:authorize="isAuthenticated()" href="/logout">Logout</a>								
+</div>
 
-			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-left">
-                    
-                    <li>
-                        <a class="page-scroll" href="/user/artisti">List of artists</a>
-                    </li>
-             
-                    <li>
-                        <a class="page-scroll" href="/logout">Logout</a>
-                    </li>
-             
-                </ul>
-                </div>
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
-	<br></br><br></br><br></br><br></br>
-	<div>
-		<div class="container tim-container">
-			
-<blockquote class="blockquote blockquote">
-<h1 class="text-left">
-				<em>Opere</em></h1>
-				  <footer class="blockquote-footer"><cite title="Source Title">Qui di seguito trovi le opere inserite</cite></footer>
-</blockquote>
 			<ul>
 				<div th:each="opera : ${opere}">
 					<div class="row">
@@ -57,7 +30,7 @@
 							<div >
 								<h2 class="text-left">
 									<a th:text="${opera.titolo}"
-										th:href="@{/opera/infoOpera(id=${opera.id})}"></a>
+										th:href="@{/user/opera/info(id=${opera.id})}"></a>
 									<div class="space"></div>
 								</h2>
 								<th:foreach th:each="opera : ${opere}">
@@ -71,9 +44,7 @@
 					</div>
 				</div>
 			</ul>
-		</div>
-		<div class="space"></div>
-	</div>
+		
 <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
 
 
@@ -89,15 +60,5 @@
 	</div>
 	
 </body>
-
-<script src="vendor/jquery/jquery.js" type="text/javascript"></script>
-<script src="vendor/jquery/jquery.min.js" type="text/javascript"></script>
-
-<script src="vendor/bootstrap/js/bootstrap.js" type="text/javascript"></script>
-<script src="js/gsdk-checkbox.js"></script>
-<script src="js/gsdk-radio.js"></script>
-<script src="js/gsdk-bootstrapswitch.js"></script>
-<script src="js/get-shit-done.js"></script>
-<script src="js/custom.js"></script>
 
 </html>
