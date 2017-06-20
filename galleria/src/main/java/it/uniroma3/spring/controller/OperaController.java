@@ -45,7 +45,7 @@ public class OperaController  {
 		return "opera/infoOpera";
 	}
 
-    //operazione di cancellazione sul opera
+    //operazione di cancellazione di un'opera
     @GetMapping("admin/opera/cancella")
 	public ModelAndView cancellaArtista(@RequestParam("id")long id, Model model){
 		operaService.delete(id);
@@ -100,6 +100,7 @@ public class OperaController  {
 	@PostMapping("/admin/opera/modificaO")
 	public String modifica(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model ){
+		Opera old= opera;
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
 		model.addAttribute("artisti", artisti);
 		if (bindingResult.hasErrors()) {
@@ -109,7 +110,8 @@ public class OperaController  {
 		}
 		else {
 			model.addAttribute(opera);
-
+			operaService.delete(old.getId());
+			operaService.add(opera);
 		}
 		return "opera/infoOpera";
 	}

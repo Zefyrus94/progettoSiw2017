@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1"/>
 <link rel="stylesheet" href="css/index.css" />
 <title>News</title>
 </head>
-<body text="white">
+<body text="black">
 <div class="topnav">
   <a href="/">Home</a>
   <a class="active" href="/news">News</a>
@@ -16,72 +16,19 @@
   <a href="/accedi">Login/Logout</a>
   <a href="/accedi_admin">Administrator</a>
 </div>
-
-
-
-		<div class="center">
-		<div class="container tim-container">
-	<br><br></br></br><br></br><br></br><br></br>
-		<blockquote class="blockquote blockquote">
-<h1 class="text-left">
-				<em>Artist</em></h1>
-				  <footer class="blockquote-footer"><cite title="Source Title">Artista</cite></footer>
-</blockquote>
-	<table class="table table-hover">
-             <ul>
-   		<!-- <img th:src="${opera.url}" alt="opera immagine"
-			style="height: 300px; width: 300px" /> -->
-			
-		<!-- <img th:src="${artista.url}" style="height: 300px; width: 300px" /> -->
-		<tr>
-			<td>
-		<li th:text="#{label.nome} +' '+ ${artista.nome}"></li>
-			</td>
-		</tr>
-		<tr>
-			<td>
-		<li th:text="#{label.cognome} +' '+ ${artista.cognome}"></li>
-			</td>
-		</tr>
-		<tr>
-			<td>
-		<li th:text="#{label.annoNascita} +' '+ ${artista.annoNascita}"></li>
-			</td>
-		</tr>
-		
-		<tr>
-			<td>
-		<li th:text="#{label.annoMorte} +' '+ ${artista.annoMorte}"></li>
-			</td>
-		</tr>
-		<!-- <ul>
-			<th:foreach th:each="opera : ${artista.operas}">
-				<li><a th:text="${opera.titolo}"
-					th:href="@{/opera/infoOpera(id=${opera.id})}"></a> <a
-					th:href="@{/opera/cancella(id=${opera.id})}"><span><input
-							type="submit" name="submit" value="cancella" /></span></a></li>
-			</th:foreach>
-		</ul> -->
-
-
-			</ul>
-			</table>
-			<br><br></br></br>
-		
-	<br><br></br></br><br></br><br></br><br></br><br><br></br></br><br></br><br></br><br></br>
-        </div>
-      </div>  
-     <div class="footer">
-		<div class="overlayer">
-			<div class="container">
-				<br></br><br></br><br></br>
-				<div class="row">
-					<div class="credits">&copy; Giacomo Bonnani---Sorin Oancea</div>
-				</div>
-			</div>
-		</div>
-	</div>
-      
+					<div>
+						<p th:text="'Nome: ' + ${artista.nome } + ${ artista.cognome}" />
+					</div>
+					
+					<div>
+						<p th:text="'Nazionalita: ' + ${artista.nazionalita}" />
+					</div>
+					<div>
+						<p th:text="'DataNascita: ' + ${artista.annoNascita}" />
+					</div>
+					<div>
+						<p th:text="'DataMorte: ' + ${artista.annoMorte}" />
+</div>
         
 </body>
 

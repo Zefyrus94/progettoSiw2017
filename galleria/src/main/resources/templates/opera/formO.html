@@ -1,47 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html>
 <head>
-<meta charset="utf-8" />
+<meta charset="ISO-8859-1"/>
+<link rel="stylesheet" href="css/index.css" />
+<title>Artists</title>
+<style> /* html { 
+  background: url('https://www.artsfon.com/pic/201602/1920x1200/artsfon.com-81003.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+</style>
 
 </head>
+<body text="white">
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/news">News</a>
+  <a class="active" href="/contacts">Contact</a>
+  <a href="/user/artisti">Artists</a>
+  <a href="/user/opere">Works of art</a>
+  <a href="/admin/artista">Insert an artist</a>
+  <a href="/logout">Logout</a>
+  <a href="/accedi_admin">Admin</a>
+</div>
 
-<body>
- <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            <div class="navbar-header">
-      			</div>
-                
-                <a class="navbar-brand page-scroll" href="/">Home</a>
-            </div>
-
-          
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-left">
-                    
-                    <li>
-                        <a class="page-scroll" href="/admin/artista">Insert an artist</a>
-                    </li>
-                   
-			 		<li><a class="page-scroll" href="/admin/opere">Works of art list</a></li>
-					
-					<li><a class="page-scroll" href="/logout">logout</a></li> 
-             
-                </ul>
-                </div>
-            </div>
-            <div class="container">
-        </div>
-    </nav>
 	
 <div>
 		<div class="container tim-container">
 	<br></br><br></br>
 	<blockquote class="blockquote blockquote">
 	<h1 class="text-left">
-	<em>Art</em></h1>
-<footer class="blockquote-footer">Inserimento di un<cite title="Source Title"> Quadro</cite></footer>
+	<em>Insert a Work of Art</em></h1>
+
 </blockquote>			
 		<div>
 			<form class="form-horizontal" th:object="${opera}"
@@ -126,7 +118,7 @@
     </form>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="pager">
- 							<li class="previous"><a href="/admin/opere">Catalogo</a></li>
+ 							<li class="previous"><a href="/admin/opere">Works of art list</a></li>
 							</ul>
 			</div>
 			
@@ -138,7 +130,7 @@
 		<div class="overlayer">
 			<div class="container">
 				<div class="row">
-					<div class="credits">&copy; Giacomo Bonnani---Sorin Oancea</div>
+					<div class="credits">&copy; Giacomo Bonanni---Sorin Oancea</div>
 				</div>
 			</div>
 		</div>
