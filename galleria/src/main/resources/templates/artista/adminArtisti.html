@@ -56,58 +56,29 @@ p,ul {
 			
 <blockquote class="blockquote blockquote">
 <h1 class="text-left">
-				<em>List of artists</em></h1>
+				<em>Artist</em></h1>
 				  
 </blockquote>
 			<ul>
 				<div th:each="artista : ${artisti}">
-					<div class="row">
-						<div class="col-md-4 col-sm-4">
-
-							<a th:href="@{/artista/risultatiAU(id=${artista.id})}"> <img
-								th:src="${artista.url}" alt="Rounded Image"
-								style="height: 200px; width: 200px" class="img-rounded" /></a>
-						</div>
-						<div >
-							<div >
+					
 								<h2 class="text-left">
 									<a th:text="${artista.nome} +' '+ ${artista.cognome}"
-										th:href="@{/autore/risultatiAU(id=${artista.id})}"></a>
+										th:href="@{/artista/resultsartista(id=${artista.id})}"></a>
 									<div class="space"></div>
 								</h2>
-							</div>
-						</div>
-					</div>
+							
 				</div>
 			</ul>
 		</div>
 		<div class="space"></div>
 	</div>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+
 	<div class="footer">
 		<div class="overlayer">
 			<div class="container">
 				<div class="row">
-					<div class="credits"> <div align="center">&copy; Giacomo Bonnani --- Sorin Oancea</div></div>
+					<div class="credits">&copy; Giacomo Bonnani --- Sorin Oancea</div>
 				</div>
 			</div>
 		</div>
