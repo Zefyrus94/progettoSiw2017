@@ -101,5 +101,9 @@ public class MainController {
 	public String citazioni(@Valid @ModelAttribute User utente, Model model) {
 		return "citazioni";
 	}
+	@RequestMapping("/contacts")
+	public String contatti(@Valid @ModelAttribute User utente, Model model) {
+		return "contacts";
+	}
 	
 }
