@@ -43,23 +43,13 @@
 </blockquote>
 			<ul>
 				<div th:each="artista : ${artisti}">
-					<div class="row">
-						<div class="col-md-4 col-sm-4">
-
-							<a th:href="@{/artista/risultatiAU(id=${artista.id})}"> <img
-								th:src="${artista.url}" alt="Rounded Image"
-								style="height: 200px; width: 200px" class="img-rounded" /></a>
-						</div>
-						<div >
-							<div >
+					
 								<h2 class="text-left">
 									<a th:text="${artista.nome} +' '+ ${artista.cognome}"
 										th:href="@{/autore/risultatiAU(id=${artista.id})}"></a>
 									<div class="space"></div>
 								</h2>
-							</div>
-						</div>
-					</div>
+							
 				</div>
 			</ul>
 		</div>
