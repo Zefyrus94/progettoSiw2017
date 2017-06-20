@@ -82,7 +82,7 @@
 	<ul>
 		<th:foreach th:each="artista : ${artisti}">
 			<li><a th:text="${artista.nome} +' '+ ${artista.cognome}"
-				th:href="@{/artista/resultsAutore(id=${artista.id})}"></a> <a
+				th:href="@{/artista/resultsArtista(id=${artista.id})}"></a> <a
 				th:href="@{/artista/cancella(id=${artista.id})}"><span><input
 						type="submit" name="submit" value="cancella" /></span></a>
 				<a th:href="@{/artista/modificaArtista(id=${artista.id})}"><span><input

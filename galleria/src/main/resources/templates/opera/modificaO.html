@@ -63,7 +63,10 @@
 				th:if="${#fields.hasErrors('url')}" th:text="#{label.mandatory}">Error</span>
 		</div>
 			<div>
-				<input type="submit" name="submit"/>
+				<a th:href="@{/infoOpera}"> 
+			    <span>
+			    <button type="submit" class="btn btn-primary">Invia</button>
+			    </span></a>
 			</div>
 		</div>
 	</form>
