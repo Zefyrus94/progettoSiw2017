@@ -1,5 +1,6 @@
 package it.uniroma3.spring.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -55,6 +56,7 @@ public class OperaController  {
     @GetMapping("/admin/opere")
 	public String mostraOpereAdmin(Model model){
 		List<Opera> opere = (List<Opera>) operaService.findAll();
+		Collections.sort(opere);
 		model.addAttribute("opere", opere);
 		return "opera/opereA";
 	}
@@ -62,6 +64,7 @@ public class OperaController  {
     @GetMapping("/user/opere")
 	public String mostraArtisti(Model model){ //al posto di ShowArtista
 		List<Opera> opere = (List<Opera>) operaService.findAll();
+		Collections.sort(opere);
 		model.addAttribute("opere", opere);
 		return "opera/opere";
 	}

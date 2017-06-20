@@ -104,7 +104,7 @@ public class Opera implements Comparable<Opera>{
 	}
 	@Override
 	public int compareTo(Opera that) {
-		return this.titolo.toUpperCase().compareTo(that.titolo.toUpperCase());
+		return this.titolo.compareTo(that.titolo);
 	}
     
     

@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import it.uniroma3.spring.model.Artista;
 
-public class CompAnno implements Comparator<Artista> {
+public class ComparatoreAnnoArtisti implements Comparator<Artista> {
 
 	@Override
 	public int compare(Artista a1, Artista a2) {

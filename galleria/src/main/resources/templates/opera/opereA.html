@@ -1,29 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Opere Inserite</title>
+<link rel="stylesheet" href="css/index.css" />
+    <title></title>
 </head>
 <body>
- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-left">
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/news">News</a>
+  <a href="/contacts">Contact</a>
+  <a href="/admin/artisti">List of artists</a>
+  <a class="active" href="/admin/opere">List of works of art</a>
+  <a href="/admin/opera">Insert a work of art</a>
+  <a href="/accedi_admin">Administrator</a>
+  <a sec:authorize="isAuthenticated()" href="/logout">Logout</a>								
                     
-                    <li>
-                        <a class="page-scroll" href="/admin/artisti">List of artists</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/admin/opera">Insert a work of art</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/logout">Logout</a>
-                    </li>
-             
-                </ul>
-                </div>
-	<h1>Opere inserite nel sistema</h1>
-	<p>
-		<span th:text="#{label.nome}">Lista opere</span>
-	</p>
+</div>
+
 	<ul>
 		<th:foreach th:each="opera : ${opere}">
 			<li><a th:text="${opera.titolo}"

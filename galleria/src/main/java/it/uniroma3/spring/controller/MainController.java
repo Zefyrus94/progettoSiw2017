@@ -89,10 +89,7 @@ public class MainController {
 		}
 		return "index";
 	}
-	@RequestMapping("/log_admin")
-	public String accedi(@Valid @ModelAttribute User utente, Model model) {
-		return "login";
-	}
+
 	@RequestMapping("/accedi_admin")
 	public String accedia(@Valid @ModelAttribute User utente, Model model) {
 		return "accessoadmin";

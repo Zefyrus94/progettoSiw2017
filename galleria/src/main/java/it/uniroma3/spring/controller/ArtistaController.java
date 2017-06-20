@@ -61,7 +61,7 @@ public class ArtistaController {
 	@GetMapping("/artisti/anno")
 	public String showartistiordered(@ModelAttribute User user,Model model){
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
-		Collections.sort(artisti, new CompAnno());
+		Collections.sort(artisti, new ComparatoreAnnoArtisti());
 		model.addAttribute(user);
 		model.addAttribute("artisti", artisti);
 		return "artista/artisti";
