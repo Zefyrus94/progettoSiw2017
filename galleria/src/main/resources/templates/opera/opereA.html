@@ -26,9 +26,9 @@
 	</p>
 	<ul>
 		<th:foreach th:each="opera : ${opere}">
-			<li><a th:text="${opera.nome}"
-				th:href="@{/opera/resultsOpera(id=${opera.id})}"></a> <a
-				th:href="@{/opera/cancella(id=${opera.id})}"><span><input
+			<li><a th:text="${opera.titolo}"
+				th:href="@{/user/opera/resultsOpera(id=${opera.id})}"></a> <a
+				th:href="@{/admin/opera/cancella(id=${opera.id})}"><span><input
 						type="submit" name="submit" value="cancella" /></span></a>
 				<a th:href="@{/opera/modificaOpera(id=${opera.id})}"><span><input
 						type="submit" name="submit" value="modifica" /></span></a></li>

@@ -51,7 +51,7 @@ public class OperaController  {
     @GetMapping("admin/opera/cancella")
 	public ModelAndView cancellaArtista(@RequestParam("id")long id, Model model){
 		operaService.delete(id);
-		return new ModelAndView("redirect:/opere");
+		return new ModelAndView("redirect:/admin/opere");
 	}
     
     //opere gestite dal admin
@@ -70,7 +70,7 @@ public class OperaController  {
 	}
 /////////////////////////////////////////////Giacomo per commenti////////////////////////////	
 	//controllo post
-    @PostMapping("/opera")
+    @PostMapping("/admin/opera")
 	public String controlloClienteInfo(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model) {
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();

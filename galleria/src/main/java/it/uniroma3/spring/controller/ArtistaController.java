@@ -71,7 +71,7 @@ public class ArtistaController {
     public String showForm(Artista artista) {
         return "artista/formartista";
     }
-    @GetMapping("/artista/resultsartista")
+    @GetMapping("/user/artista/resultsartista")
 	public String showartista(@RequestParam("id")long id, Model model){
 		Artista a = artistaService.findbyId(id);
 		model.addAttribute("artista", a);
@@ -79,7 +79,7 @@ public class ArtistaController {
 	}
     
 
-    @GetMapping("artista/cancella")
+    @GetMapping("/admin/artista/cancella")
 	public ModelAndView deleteartista(@RequestParam("id")long id, Model model){
 		artistaService.delete(id);
 		return new ModelAndView("redirect:/artisti");
