@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<link rel="stylesheet" href="css/index.css" />
+    <title></title>
+</head>
+<body>
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a class="active" href="accedi">Login/SignUp</a>
+ <!--  <a href="signUp">Sign-up</a> -->
+  <a href="log_admin"><b>Amministratore</b></a>
+</div>
+<div id="wrapper">
+ <font size="6">
+		<!-- start: Container -->
+		<div class="container">
+
+			<!-- start: Row -->
+			<div class="row">
+
+				<!-- start: Form Login user-->
+				<div align="center" class="span4">
+					<div class="title">
+						<h3>Login user</h3>
+					</div>
+<br></br>
+<br></br>
+					<div align="center" id="contact-form">
+						<div class="text-error" th:if="${param.error}">Username o password non validi.</div>
+						<form action="#" th:action="@{/accedi}" th:object="${user}" method="post">
+							<fieldset>
+								<div class="clearfix">
+									<label for="username"><span>Username*:</span></label>
+									<div class="input">
+										<input tabindex="1" size="20" id="username" name="username" type="text"
+											th:field="*{username}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('username')}">Errore: campo obbligatorio</span>
+								</div>
+								<div class="clearfix">
+									<label for="password"><span>Password:</span></label>
+									<div class="input">
+										<input tabindex="2" size="20" id="password" name="password" type="password"
+											th:field="*{password}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('password')}">Errore</span>
+								</div>
+
+								<div class="actions">
+									<button tabindex="3" type="submit" class="btn btn-succes btn-large">Autentica
+										user</button>
+								</div>
+							</fieldset>
+
+						</form>
+
+					</div>
+
+				</div>
+			
+<br></br>
+<br></br>
+<br></br>
+				<div class="span4">
+					<div align="center" class="title">
+						<h3>Register here!</h3>
+					</div>
+<br></br>
+<br></br>
+					<div align="center" id="contact-form">
+						<form action="#" th:action="@{/registrazione}" th:object="${user}" method="post">
+							<fieldset>
+								<div class="clearfix">
+									<label for="firstname"><span>Firstname*:</span></label>
+									<div class="input">
+										<input tabindex="1" size="20" id="firstname" name="firstname" type="text"
+											th:field="*{firstname}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('firstname')}">Errore: campo obbligatorio</span>
+								</div>
+								<div class="clearfix">
+									<label for="lastname"><span>Lastname*:</span></label>
+									<div class="input">
+										<input tabindex="1" size="20" id="lastname" name="lastname" type="text"
+											th:field="*{lastname}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('lastname')}">Errore: campo obbligatorio</span>
+								</div>
+								<div class="clearfix">
+									<label for="age"><span>Age*:</span></label>
+									<div class="input">
+										<input tabindex="1" size="20" id="age" name="age" type="text"
+											th:field="*{age}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('age')}">Errore: campo obbligatorio</span>
+								</div>
+								<div class="clearfix">
+									<label for="username"><span>Username*:</span></label>
+									<div class="input">
+										<input tabindex="4" size="20" id="username" name="username" type="text"
+											th:field="*{username}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('username')}">Errore: campo obbligatorio</span>
+								</div>
+								<div class="clearfix">
+									<label for="password"><span>Password*:</span></label>
+									<div class="input">
+										<input tabindex="5" size="20" id="password" name="password" type="password"
+											th:field="*{password}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('password')}">Errore</span>
+								</div>
+
+								<div class="actions">
+									<button tabindex="6" type="submit" class="btn btn-succes btn-large">Registra
+										user</button>
+								</div>
+							</fieldset>
+
+						</form>
+
+					</div>
+
+				</div>
+	
+<!-- 				<div class="span4" th:if="${errore} or ${successo}">
+					<div class="title">
+						<h3>Riepilogo Informazioni</h3>
+					</div>
+					<font size="3">
+					<span class="text-error" th:text="${errore}"></span><br/>
+					<span class="text-success" th:text="${successo}"></span>
+					</font>
+				</div> -->
+
+			</div>
+		</div>
+<br></br>
+<br></br>
+</font> 
+	</div>
+
+</body>
+</html>

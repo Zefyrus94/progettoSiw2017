@@ -97,6 +97,9 @@ public class MainController {
 	public String accedia(@Valid @ModelAttribute User utente, Model model) {
 		return "accessoadmin";
 	}
-
+	@RequestMapping("/quotes")
+	public String citazioni(@Valid @ModelAttribute User utente, Model model) {
+		return "citazioni";
+	}
 	
 }

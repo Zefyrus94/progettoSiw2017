@@ -35,17 +35,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 	private InMemoryUserDetailsManagerConfigurer<AuthenticationManagerBuilder>
-    inMemoryConfigurer() {
-	return new InMemoryUserDetailsManagerConfigurer<>();
-}
+	inMemoryConfigurer() {
+		return new InMemoryUserDetailsManagerConfigurer<>();
+	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		inMemoryConfigurer()
-        .withUser("admin")
-            .password("admin")
-            .authorities("ROLE_ADMIN")
-.and().configure(auth);
-auth.jdbcAuthentication().dataSource(dataSource)
+		.withUser("admin")
+		.password("admin")
+		.authorities("ROLE_ADMIN")
+		.and().configure(auth);
+		auth.jdbcAuthentication().dataSource(dataSource)
 		.passwordEncoder(new BCryptPasswordEncoder())
 		.usersByUsernameQuery("SELECT username, password, 1 FROM utenti WHERE username = ?")
 		.authoritiesByUsernameQuery("SELECT u.username, ruoli.ruolo authority " +
@@ -60,15 +60,15 @@ auth.jdbcAuthentication().dataSource(dataSource)
 		.authoritiesByUsernameQuery("SELECT u.username, ruoli.ruolo authority " +
 				"FROM utenti u JOIN ruoli_utente ruoli ON u.id = ruoli.utente_id WHERE u.username = ?");
 	}
-//	@Bean
-//	public EmbeddedServletContainerCustomizer containerCustomizer() {
-//	    return new EmbeddedServletContainerCustomizer() {
-//	        @Override
-//	        public void customize(ConfigurableEmbeddedServletContainer container) {
-//	            container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404.html"));
-//	        }
-//	    };
-//	}
+	//	@Bean
+	//	public EmbeddedServletContainerCustomizer containerCustomizer() {
+	//	    return new EmbeddedServletContainerCustomizer() {
+	//	        @Override
+	//	        public void customize(ConfigurableEmbeddedServletContainer container) {
+	//	            container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404.html"));
+	//	        }
+	//	    };
+	//	}
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
@@ -83,7 +83,7 @@ auth.jdbcAuthentication().dataSource(dataSource)
 				"/opere","/opere/**","/uploadFrom**","/gellallfiles","/upload/**","/upload",
 				"/admin/**","/admin", "/accesso", "/logout", "../css/**", "../js/**","/log_admin","/accessoadmin")
 		.permitAll()
-//		.antMatchers("/", "/accesso", "/logout", "../css/**", "../js/**","/log_admin","/accessoadmin").permitAll()
+		//		.antMatchers("/", "/accesso", "/logout", "../css/**", "../js/**","/log_admin","/accessoadmin").permitAll()
 		.antMatchers("/user/**").hasAnyRole("USER","ADMIN")
 		.antMatchers("/admin/**").hasRole("ADMIN")
 		.anyRequest().permitAll()
