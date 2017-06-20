@@ -105,5 +105,8 @@ public class MainController {
 	public String contatti(@Valid @ModelAttribute User utente, Model model) {
 		return "contacts";
 	}
-	
+	@RequestMapping("/news")
+	public String news(@Valid @ModelAttribute User utente, Model model) {
+		return "news";
+	}
 }
