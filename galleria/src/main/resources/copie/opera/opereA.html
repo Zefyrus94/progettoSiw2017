@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Opere Inserite</title>
+</head>
+<body>
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    
+                    <li>
+                        <a class="page-scroll" href="/artista">Artista</a>
+                    </li>
+                    <li>
+                        <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
+                    </li>
+                   
+			 		<li><a class="page-scroll" href="/opere">Opere inserite</a></li>
+					
+					<li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li> 
+                    <li>
+                        <a class="page-scroll" href="/opere">Opere</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="/user">Registrati</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/login">Autenticazione</a>
+                    </li>
+             
+                </ul>
+                </div>
+	<h1>Opere inserite nel sistema</h1>
+	<p>
+		<span th:text="#{label.nome}">Lista opere</span>
+	</p>
+	<ul>
+		<th:foreach th:each="opera : ${opere}">
+			<li><a th:text="${opera.nome}"
+				th:href="@{/opera/resultsOpera(id=${opera.id})}"></a> <a
+				th:href="@{/opera/cancella(id=${opera.id})}"><span><input
+						type="submit" name="submit" value="cancella" /></span></a>
+				<a th:href="@{/opera/modificaOpera(id=${opera.id})}"><span><input
+						type="submit" name="submit" value="modifica" /></span></a></li>
+		</th:foreach>
+	</ul>
+</body>
+</html>

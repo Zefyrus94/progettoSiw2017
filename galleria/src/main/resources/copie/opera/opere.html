@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png" />
+<link rel="icon" type="image/png" href="img/apple-touch-icon.png" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>Galleria/Home/Opere</title>
+
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+	name='viewport' />
+<meta name="viewport" content="width=device-width" />
+
+<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="css/gsdk.css" rel="stylesheet" />
+<link href="css/demo.css" rel="stylesheet" />
+<link href="css/siw.css" rel="stylesheet" />
+<!--     Font Awesome     -->
+<link href="vendor/bootstrap/css/font-awesome.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Grand+Hotel'
+	rel='stylesheet' type='text/css' />
+
+</head>
+
+<body style="background-image: url('http://picslife.ru/wp-content/uploads/2012/11/krasivyie-kartinyi-maslom-hudozhnika-leonida-afremova_2.jpg')">
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i
+						class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="/">HOME</a>
+			</div>
+
+			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    
+                    <li>
+                        <a class="page-scroll" href="/artista">Artista</a>
+                    </li>
+                    <li>
+                        <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
+                    </li>
+                   
+			 		<li><a class="page-scroll" href="/opere">Opere inserite</a></li>
+					
+					<li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li> 
+                    <li>
+                        <a class="page-scroll" href="/opere">Opere</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="/user">Registrati</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/login">Autenticazione</a>
+                    </li>
+             
+                </ul>
+                </div>
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<br></br><br></br><br></br><br></br>
+	<div>
+		<div class="container tim-container">
+			
+<blockquote class="blockquote blockquote">
+<h1 class="text-left">
+				<em>Opere</em></h1>
+				  <footer class="blockquote-footer"><cite title="Source Title">Qui di seguito trovi le opere inserite</cite></footer>
+</blockquote>
+			<ul>
+				<div th:each="opera : ${opere}">
+					<div class="row">
+						<div class="col-md-4 col-sm-4">
+
+							<a th:href="@{/opera/infoOpera(id=${opera.id})}">
+					
+								<img th:src="${opera.url}"
+								style="height: 236px; width: 304" class="img-circle" />
+							</a>
+						</div>
+						<div >
+							<div >
+								<h2 class="text-left">
+									<a th:text="${opera.titolo}"
+										th:href="@{/opera/infoOpera(id=${opera.id})}"></a>
+									<div class="space"></div>
+								</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ul>
+		</div>
+		<div class="space"></div>
+	</div>
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
+
+
+	<div class="footer">
+		<div class="overlayer">
+			<div class="container">
+				<div class="row">
+					<div class="credits">&copy; Giacomo Bonnani---Sorin Oancea</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+<script src="vendor/jquery/jquery.js" type="text/javascript"></script>
+<script src="vendor/jquery/jquery.min.js" type="text/javascript"></script>
+
+<script src="vendor/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="js/gsdk-checkbox.js"></script>
+<script src="js/gsdk-radio.js"></script>
+<script src="js/gsdk-bootstrapswitch.js"></script>
+<script src="js/get-shit-done.js"></script>
+<script src="js/custom.js"></script>
+
+</html>
