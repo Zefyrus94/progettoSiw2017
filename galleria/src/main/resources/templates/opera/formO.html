@@ -25,43 +25,60 @@
 
 </head>
 
-<body id="page-top" style="background-image: url('https://www.premioceleste.it/_files/opere/2013_53521_199648.jpg')">
+<body id="page-top" style="background-image: url('http://cameralabs.org/media/camera/avgust/6avgust/53_19285bd27f46ba1b999c6467fa5f834f.jpg')">
+ <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <div class="navbar-header">
+      			<a class="navbar-brand" >Midnight</a>
+   				 </div>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Home</a>
+            </div>
 
-	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> Menu <i
-						class="fa fa-bars"></i>
-				</button>
-				<a class="navbar-brand page-scroll" href="/">HOME</a>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="topnav">
-  <ul class="nav navbar-nav navbar-left">
-					<li><a class="page-scroll" href="/artista">Artista</a></li>
-					 <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
-					 <li><a class="page-scroll" href="/opere">Opere inserite</a></li>
-			 		<li><a class="page-scroll" href="/user">REGISTRATI</a></li>
+          
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    
+                    <li>
+                        <a class="page-scroll" href="/artista">Artista</a>
+                    </li>
+                    <li>
+                        <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
+                    </li>
+                   
+			 		<li><a class="page-scroll" href="/opere">Opere inserite</a></li>
+					
 					<li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li> 
-				</ul>
-</div>
-			
-		</div>
-		
-	</nav>
-<div class="main">
-		<div class="container tim-container">
-	<br><br></br></br>
-		<h1 class="text-left">
-				Opera<small class="subtitle">Home/OperaForm</small>
-			</h1>
-    <h1>Dettagli Opera</h1>
-		<div>
+                    <li>
+                        <a class="page-scroll" href="/opere">Opere</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="/user">Registrati</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/login">Autenticazione</a>
+                    </li>
+             
+                </ul>
+                </div>
+            </div>
+            <div class="container">
+        </div>
+    </nav>
 	
+<div>
+		<div class="container tim-container">
+	<br></br><br></br>
+	<blockquote class="blockquote blockquote">
+	<h1 class="text-left">
+	<em>Art</em></h1>
+<footer class="blockquote-footer">Inserimento di un<cite title="Source Title"> Quadro</cite></footer>
+</blockquote>			
+		<div>
 			<form class="form-horizontal" th:object="${opera}"
 				th:action="@{opera}" method="post">
 				
@@ -87,8 +104,8 @@
 					th:class="${#fields.hasErrors('anno')} ? 'form-group has-error' : 'form-group'">
 					<label class="col-sm-2 control-label">Anno:</label>
 					<div class="col-sm-5">
-						<input type="text" class="form-control" th:field="*{anno}"
-							th:errorclass="has-error" /> <span class="help-block">
+						<input type="text"  class="form-control" th:field="*{anno}"
+							th:errorclass="has-error"  /> <span class="help-block">
 							<ul>
 								<li th:each="err : ${#fields.errors('anno')}" th:text="${err}" />
 							</ul>

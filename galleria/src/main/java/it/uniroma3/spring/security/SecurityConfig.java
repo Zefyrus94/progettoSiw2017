@@ -78,7 +78,12 @@ auth.jdbcAuthentication().dataSource(dataSource)
 		.successHandler(loginSuccessHandler)
 		.and()
 		.authorizeRequests()
-		.antMatchers("/", "/accesso", "/logout", "../css/**", "../js/**","/log_admin","/accessoadmin").permitAll()
+		.antMatchers("/","/signup","/img/**","/fonts/**","/js/**","/less/**","/vendor/**",
+				"/css/**","/home","/user/**","/artista/**","/artista/**","/opera/**","/opera",
+				"/opere","/opere/**","/uploadFrom**","/gellallfiles","/upload/**","/upload",
+				"/admin/**","/admin", "/accesso", "/logout", "../css/**", "../js/**","/log_admin","/accessoadmin")
+		.permitAll()
+//		.antMatchers("/", "/accesso", "/logout", "../css/**", "../js/**","/log_admin","/accessoadmin").permitAll()
 		.antMatchers("/user/**").hasAnyRole("USER","ADMIN")
 		.antMatchers("/admin/**").hasRole("ADMIN")
 		.anyRequest().permitAll()

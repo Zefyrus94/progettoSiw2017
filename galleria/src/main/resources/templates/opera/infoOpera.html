@@ -39,35 +39,48 @@
 				<a class="navbar-brand page-scroll" href="index.html">HOME</a>
 			</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="topnav">
-  			<ul class="nav navbar-nav navbar-left">
-					<li><a class="page-scroll" href="/artista">Artista</a></li>
-					 <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
-					 <li><a class="page-scroll" href="/opere">Opere inserite</a></li>
-			 		<li><a class="page-scroll" href="/user">REGISTRATI</a></li>
+			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    
+                    <li>
+                        <a class="page-scroll" href="/artista">Artista</a>
+                    </li>
+                    <li>
+                        <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
+                    </li>
+                   
+			 		<li><a class="page-scroll" href="/opere">Opere inserite</a></li>
+					
 					<li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li> 
-				</ul>
-			</div>
+                    <li>
+                        <a class="page-scroll" href="/opere">Opere</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="/user">Registrati</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/login">Autenticazione</a>
+                    </li>
+             
+                </ul>
+                </div>
 			
 		</div>
 		
 	</nav>
 
 
-<div class="main">
+<div>
 		<div class="container tim-container">
-	<br><br></br></br>
-		<h1 class="text-left">
-				Opere<small class="subtitle">Home/Opere</small>
-			</h1>
-    <h1>Il quadro inserito:</h1>
-  
-           <ul>
-           <div>
-		<img th:src="${opera.url}" alt="opera immagine"
-			style="height: 250px; width: 400px" />
-			</div>
+	<blockquote class="blockquote blockquote">
+            <h1 class="text-left">
+	<br></br>
+			<em>Art</em></h1>
+		  <footer class="blockquote-footer">Hai aggiunto la seguente<cite title="Source Title"> Opera</cite></footer>
+		</blockquote>
+        <ul>
+           
 		<table class="table table-hover">
 		<tr>
 			<td>
@@ -90,15 +103,15 @@
 			</td>
 		</tr>
 		</table>
-		<!-- <li><a th:text="'artista'+ ${opera.artista.nome} +' '+ ${opera.artista.cognome}"
-				th:href="@{/artista/formA(id=${opera.artista.id})}"></a></li> -->
-	
-	 
-		<!-- <li><a th:text="'Stanza: ' + ${opera.stanza.nome}" 
-			th:href="@{/stanza/resultsStanza(id=${opera.stanza.id})}"></a></li> -->
-			
-           
-			
+		<div>
+		 <!-- <li><a th:text="'Artista: ' "></a><a th:text="${opera.artista.nome} +  ${opera.artista.cognome}" 
+						th:href="@{/artista/risultatiAr(id=${opera.artista.id})}"></a></li> -->
+			</div>	
+	<!-- 		<div class="row">
+				<div>
+    	<p th:text="'Descrizione: ' + ${opera.titolo}" />
+    </div>	</div>
+ -->			
 			    <a th:href="@{/opera}"> 
 			    <span>
 			    <button type="submit" class="btn btn-primary">Torna indietro</button>

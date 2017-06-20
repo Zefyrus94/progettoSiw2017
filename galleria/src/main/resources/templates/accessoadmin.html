@@ -2,19 +2,60 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-<link rel="stylesheet" href="css/index.css" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="stylesheet" href="/lib/bootstrap.min.css">
+    <title>Galleria d'arte</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/creative.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-<div class="topnav">
-  <a href="/">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-  <a class="active" href="accedi">Login/SignUp</a>
- <!--  <a href="signUp">Sign-up</a> -->
-  <a href="log_admin"><b>Amministratore</b></a>
-</div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    
+                    <li>
+                        <a class="page-scroll" href="/user/artisti">Artists</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/citazioni">Quotes</a>
+                    </li>
+                     
+                    <li>
+                        <a class="page-scroll" href="/user/opere">Works of art</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="/accedi">Register here!</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/accedi">Login</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/accedi_admin">Administrator</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+											<a class="page-scroll" href="/logout">logout</a>
+										
+                    </li>
+                    
+                </ul>
+            </div>
 <div id="wrapper">
  <font size="6">
 		<!-- start: Container -->
@@ -25,11 +66,15 @@
 
 				<!-- start: Form Login user-->
 				<div align="center" class="span4">
-					<div class="title">
-						<h3>Login admin</h3>
-					</div>
+					<blockquote class="blockquote blockquote">
+	<h1 class="text-left">
+	<em>Admin page</em></h1>
+<footer class="blockquote-footer">Accesso al <cite title="Source Title"> Administratore</cite></footer>
+</blockquote>
+
 <br></br>
 <br></br>
+<div class="main">
 					<div align="center" id="contact-form">
 						<div class="text-error" th:if="${param.error}">Username o password non validi.</div>
 						<form action="#" th:action="@{/accedi}" th:object="${user}" method="post">
@@ -63,12 +108,20 @@
 
 				</div>
 			</div></div>
+			</div>
 <br></br>
 <br></br>
 <br></br>
 
 </font> 
 	</div>
-
+<aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <div class="credits">&copy; Giacomo Bonnani---Sorin Oancea</div>
+             
+            </div>
+        </div>
+    </aside> 
 </body>
 </html>
