@@ -33,12 +33,7 @@
 										th:href="@{/user/opera/info(id=${opera.id})}"></a>
 									<div class="space"></div>
 								</h2>
-								<th:foreach th:each="opera : ${opere}">
-							<li><a th:href="@{/opera/cancella(id=${opera.id})}"><span><input
-							type="submit" name="submit" value="cancella" /></span></a>
-							<a th:href="@{/opera/modificaO(id=${opera.id})}"><span><input
-						type="submit" name="submit" value="modifica" /></span></a></li>
-		</th:foreach>
+								
 							</div>
 						</div>
 					</div>

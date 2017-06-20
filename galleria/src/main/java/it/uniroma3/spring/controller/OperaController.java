@@ -19,9 +19,6 @@ import it.uniroma3.spring.model.Opera;
 import it.uniroma3.spring.service.ArtistaService;
 import it.uniroma3.spring.service.OperaService;
 
-///////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-///////////////// dafare il percorso//////////////////////
 
 @Controller
 public class OperaController  {
@@ -68,8 +65,7 @@ public class OperaController  {
 		model.addAttribute("opere", opere);
 		return "opera/opere";
 	}
-/////////////////////////////////////////////Giacomo per commenti////////////////////////////	
-	//controllo post
+    //controllo post
     @PostMapping("/admin/opera")
 	public String controlloClienteInfo(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model) {
@@ -91,7 +87,7 @@ public class OperaController  {
 	@GetMapping("/admin/opera/modificaO")
 	public String modificaOpera2(Model model,@RequestParam("id")Long id) {
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
-		model.addAttribute("autori", artisti);
+		model.addAttribute("artisti", artisti);
 		Opera opera=operaService.findbyId(id);
 		model.addAttribute("opera",opera);
 		return "opera/modificaO";
@@ -99,21 +95,18 @@ public class OperaController  {
 
     //modifica
 	@PostMapping("/admin/opera/modificaO")
-	public String controlloCliente(@Valid @ModelAttribute Opera opera, 
+	public String modifica(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model ){
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
-		model.addAttribute("autori", artisti);
+		model.addAttribute("artisti", artisti);
 		if (bindingResult.hasErrors()) {
+			System.out.println("here");
+			System.out.println(opera);
 			return "opera/modificaO";
 		}
 		else {
 			model.addAttribute(opera);
-			try{
-				operaService.add(opera);
-			}catch(Exception e){
-				return"opera/modificaO";
 
-			}
 		}
 		return "opera/infoOpera";
 	}

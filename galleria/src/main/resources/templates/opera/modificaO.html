@@ -1,37 +1,34 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-<title>Modifica opera</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8"/>
+<link rel="stylesheet" href="css/admin.css" />
 </head>
-<body style="background-image: url('https://www.premioceleste.it/_files/opere/2013_53521_199648.jpg')">
- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-left">
+<body>
+
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/news">News</a>
+  <a href="/contacts">Contact</a>
+  <a href="admin/artisti">Artists</a>
+  <a href="admin/opere">Works of art</a>
+ <!--  <a href="signUp">Sign-up</a> -->
+  <a class="active" href="accedi_admin"><b>Administrator</b></a>
+  <a sec:authorize="isAuthenticated()" href="/logout">Logout</a>								
                     
-                    <li>
-                        <a class="page-scroll" href="/artista">Artista</a>
-                    </li>
-                    <li>
-                        <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
-                    </li>
-                   
-			 		<li><a class="page-scroll" href="/opere">Opere inserite</a></li>
-					
-					<li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li> 
-                    <li>
-                        <a class="page-scroll" href="/opere">Opere</a>
-                    </li>
-                    
-                    <li>
-                        <a class="page-scroll" href="/user">Registrati</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/login">Autenticazione</a>
-                    </li>
-             
-                </ul>
-                </div>
-	<form action="#" th:action="@{/opera/modificaO(id=${opera.id})}" th:object="${opera}"
+</div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+	<form action="#" th:action="@{/admin/opera/modificaO(id=${opera.id})}" th:object="${opera}"
 		method="post" >
 		<div>
 			<div>
@@ -51,6 +48,11 @@
 					th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
 			</div>
 			<div>
+				<span th:text="#{label.dimensione}">Dimensioni: </span> <span><input
+					type="text" th:field="*{dimensione}" /></span> <span
+					th:if="${#fields.hasErrors('dimensione')}" th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
 				<span th:text="#{label.artista}">Artista:</span> <select
 					th:field="*{artista}">
 					<option th:each="artista : ${artisti}" th:value="${artista.id}"
@@ -63,10 +65,9 @@
 				th:if="${#fields.hasErrors('url')}" th:text="#{label.mandatory}">Error</span>
 		</div>
 			<div>
-				<a th:href="@{/infoOpera}"> 
-			    <span>
+				
 			    <button type="submit" class="btn btn-primary">Invia</button>
-			    </span></a>
+			    
 			</div>
 		</div>
 	</form>

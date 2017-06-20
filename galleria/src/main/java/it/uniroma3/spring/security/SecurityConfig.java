@@ -60,15 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.authoritiesByUsernameQuery("SELECT u.username, ruoli.ruolo authority " +
 				"FROM utenti u JOIN ruoli_utente ruoli ON u.id = ruoli.utente_id WHERE u.username = ?");
 	}
-	//	@Bean
-	//	public EmbeddedServletContainerCustomizer containerCustomizer() {
-	//	    return new EmbeddedServletContainerCustomizer() {
-	//	        @Override
-	//	        public void customize(ConfigurableEmbeddedServletContainer container) {
-	//	            container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404.html"));
-	//	        }
-	//	    };
-	//	}
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
@@ -83,7 +75,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				"/opere","/opere/**","/uploadFrom**","/gellallfiles","/upload/**","/upload",
 				"/admin/**","/admin", "/accesso", "/logout", "../css/**", "../js/**","/log_admin","/accessoadmin")
 		.permitAll()
-		//		.antMatchers("/", "/accesso", "/logout", "../css/**", "../js/**","/log_admin","/accessoadmin").permitAll()
 		.antMatchers("/user/**").hasAnyRole("USER","ADMIN")
 		.antMatchers("/admin/**").hasRole("ADMIN")
 		.anyRequest().permitAll()
