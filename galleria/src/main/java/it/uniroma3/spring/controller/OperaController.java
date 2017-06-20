@@ -34,13 +34,13 @@ public class OperaController  {
     //pagina form per raccolta dati
     @GetMapping("admin/opera")
 	public String mostraForm(Model model, Opera opera){
-		List<Artista> artista = (List<Artista>) artistaService.findAll();
-		model.addAttribute("artista", artista);
+		List<Artista> artisti = (List<Artista>) artistaService.findAll();
+		model.addAttribute("artisti", artisti);
 		return "opera/formO";
 	}
     
     //descrizione di una opera
-    @GetMapping("opera/infoOpera")
+    @GetMapping("user/opera/info")
 	public String mostraArtista(@RequestParam("id")long id, Model model){
 		Opera opera = operaService.findbyId(id);
 		model.addAttribute("opera", opera); 
@@ -55,7 +55,7 @@ public class OperaController  {
 	}
     
     //opere gestite dal admin
-    @GetMapping("/admin/opereAdmin")
+    @GetMapping("/admin/opere")
 	public String mostraOpereAdmin(Model model){
 		List<Opera> opere = (List<Opera>) operaService.findAll();
 		model.addAttribute("opere", opere);
