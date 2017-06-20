@@ -21,7 +21,7 @@ import it.uniroma3.spring.service.OperaService;
 
 ///////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
-/////////////////Al posto di stanza fare il catalogo o percorso//////////////////////
+///////////////// dafare il percorso//////////////////////
 
 @Controller
 public class OperaController  {
@@ -35,9 +35,7 @@ public class OperaController  {
     @GetMapping("admin/opera")
 	public String mostraForm(Model model, Opera opera){
 		List<Artista> artista = (List<Artista>) artistaService.findAll();
-//		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("artista", artista);
-//		model.addAttribute("stanze",stanze);
 		return "opera/formO";
 	}
     
@@ -93,22 +91,18 @@ public class OperaController  {
 	@GetMapping("/admin/opera/modificaO")
 	public String modificaOpera2(Model model,@RequestParam("id")Long id) {
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
-//		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("autori", artisti);
-//		model.addAttribute("stanze",stanze);
 		Opera opera=operaService.findbyId(id);
 		model.addAttribute("opera",opera);
 		return "opera/modificaO";
 	}
 
-    //modidica
+    //modifica
 	@PostMapping("/admin/opera/modificaO")
 	public String controlloCliente(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model ){
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
-//		List<Stanza>stanze= (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("autori", artisti);
-//		model.addAttribute("stanze",stanze);
 		if (bindingResult.hasErrors()) {
 			return "opera/modificaO";
 		}

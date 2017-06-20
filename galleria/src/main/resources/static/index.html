@@ -1,3 +1,22 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Marketplace
+Gist
+ @sorinoancea
+ Sign out
+ Watch 0
+  Star 0
+  Fork 1 Zefyrus94/prova
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki Insights 
+Branch: master Find file Copy pathprova/galleria/src/main/resources/static/index.html
+a9213bb  3 hours ago
+ W10 aggiunta pagina per gestione errore 404
+1 contributor
+RawBlameHistory     
+227 lines (196 sloc)  8.99 KB
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
@@ -91,8 +110,7 @@
                         <a class="page-scroll" href="/accedi_admin">Administrator</a>
                     </li>
                     <li sec:authorize="isAuthenticated()">
-											<a class="page-scroll" href="/logout">logout</a>
-										
+											<a class="page-scroll" href="/logout">logout</a>			
                     </li>
                     
                 </ul>
@@ -224,4 +242,3 @@
 	
 </body>
 </html>
-
