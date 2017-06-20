@@ -69,8 +69,8 @@ import it.uniroma3.spring.model.User;
 import it.uniroma3.spring.service.UserService;
 
 
-@ControllerAdvice
-//@Controller
+
+@Controller
 @SessionAttributes("current_username")
 public class MainController {
 
