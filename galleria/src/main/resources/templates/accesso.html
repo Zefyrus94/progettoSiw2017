@@ -13,7 +13,9 @@
   <a href="#about">About</a>
   <a class="active" href="accedi">Login/SignUp</a>
  <!--  <a href="signUp">Sign-up</a> -->
-  <a href="log_admin"><b>Amministratore</b></a>
+  <a href="accedi_admin"><b>Amministratore</b></a>
+  <a sec:authorize="isAuthenticated()" href="/logout">Logout</a>								
+                    
 </div>
 <div id="wrapper">
  <font size="6">

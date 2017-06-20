@@ -86,15 +86,12 @@
                         <a class="page-scroll" href="/accedi">Register here!</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/accedi">Login</a>
+                        <a class="page-scroll" href="/accedi">Login/Logout</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/accedi_admin">Administrator</a>
                     </li>
-                    <li sec:authorize="isAuthenticated()">
-											<a class="page-scroll" href="/logout">logout</a>
-										
-                    </li>
+
                     
                 </ul>
             </div>
@@ -182,17 +179,7 @@
 												</li>	
 											</ul></li>
 
-										<!--  Utente Autenticato -->
-										<li sec:authorize="isAuthenticated()">
-											<div class="contact-form">
-												Benvenuto, <b sec:authentication="name">[generic user]</b>!
-												<form action="/logout" method="post">
-													<div class="actions">
-														<input id="logout" type="submit" value="Logout" />
-													</div>
-												</form>
-											</div>
-										</li>
+										
 									</ul>
 								</div>
 							</div>

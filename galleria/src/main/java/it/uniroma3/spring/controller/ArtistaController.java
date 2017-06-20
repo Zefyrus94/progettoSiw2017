@@ -49,6 +49,15 @@ public class ArtistaController {
 		model.addAttribute("artisti", artisti);
 		return "artista/artisti";
 	}
+	@GetMapping("/admin/artisti")
+	public String showartistiAdm(@ModelAttribute User user,Model model){
+		List<Artista> artisti = (List<Artista>) artistaService.findAll();
+		Collections.sort(artisti);
+		System.out.println(user);
+		model.addAttribute(user);
+		model.addAttribute("artisti", artisti);
+		return "artista/adminArtisti";
+	}
 	@GetMapping("/artisti/anno")
 	public String showartistiordered(@ModelAttribute User user,Model model){
 		List<Artista> artisti = (List<Artista>) artistaService.findAll();
@@ -80,7 +89,7 @@ public class ArtistaController {
 		return "home/home";
 	}
     
-    @PostMapping("/artista")
+    @PostMapping("/admin/artistainfo")
     public String checkCustomerInfo(@Valid @ModelAttribute Artista artista, 
     									BindingResult bindingResult, Model model) {
     	

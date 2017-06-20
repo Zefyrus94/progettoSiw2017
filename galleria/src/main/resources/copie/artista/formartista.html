@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8" />
+<!-- <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png" />
 <link rel="icon" type="image/png" href="img/apple-touch-icon.png" />
 
@@ -17,15 +17,21 @@
 <link href="css/gsdk.css" rel="stylesheet" />
 <link href="css/demo.css" rel="stylesheet" />
 <link href="css/siw.css" rel="stylesheet" />
-<!--     Font Awesome     -->
+    Font Awesome    
 <link href="vendor/bootstrap/css/font-awesome.css" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Grand+Hotel'
-	rel='stylesheet' type='text/css' />
-
+	rel='stylesheet' type='text/css' /> -->
+<style> html { 
+  background: url('https://ae01.alicdn.com/kf/HTB1ZOD5KpXXXXbyXFXXq6xXFXXXR/Famous-oil-painting-Modern-artists-sunset-forest-Oil-painting-pictures-Art-print-on-the-canvas-wall.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}</style>
 </head>
 
-<body style="background-image: url('http://picslife.ru/wp-content/uploads/2012/11/krasivyie-kartinyi-maslom-hudozhnika-leonida-afremova_2.jpg')">
-
+<body text="white">
+<font size="12">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -42,24 +48,13 @@
                 <ul class="nav navbar-nav navbar-left">
                     
                     <li>
-                        <a class="page-scroll" href="/artista">Artista</a>
+                        <a class="page-scroll" href="/admin/artisti">List of artists</a>
                     </li>
-                    <li>
-                        <li><a class="page-scroll" href="/opera">Opera da inserire</a></li>
-                    </li>
+         	 		<li><a class="page-scroll" href="/admin/opere">List of works of art</a></li>
                    
-			 		<li><a class="page-scroll" href="/opere">Opere inserite</a></li>
-					
-					<li><a class="page-scroll" href="/admin">AMMINISTRATORE</a></li> 
+			 		<li><a class="page-scroll" href="/opere">Insert a work of art</a></li>
                     <li>
-                        <a class="page-scroll" href="/opere">Opere</a>
-                    </li>
-                    
-                    <li>
-                        <a class="page-scroll" href="/user">Registrati</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/login">Autenticazione</a>
+                        <a class="page-scroll" href="/logout">Logout</a>
                     </li>
              
                 </ul>
@@ -92,7 +87,7 @@
 					th:class="${#fields.hasErrors('nome')} ? 'form-group has-error' : 'form-group'">
 					<label class="col-sm-4 control-label">Nome:</label>
 					<div class="col-sm-2">
-						<input type="text" class="form-control" th:field="*{nome}"
+						<input style="height:55px;font-size:14pt; type="text" class="form-control" th:field="*{nome}"
 							th:errorclass="has-error" /> <span class="help-block">
 							<ul>
 								<li th:each="err : ${#fields.errors('nome')}" th:text="${err}" />
@@ -138,21 +133,6 @@
 					</div>
 				</div>
 			
-<!-- 					 <select id="anno"
-          			name="anno" >
-				    <option>January</option>      
-				    <option>February</option>      
-				    <option>March</option>      
-				    <option>April</option>      
-				    <option>May</option>      
-				    <option>June</option>      
-				    <option>July</option>      
-				    <option>August</option>      
-				    <option>September</option>      
-				    <option>October</option>      
-				    <option>November</option>      
-				    <option>December</option>      
-  					</select> -->
   				
 			<div class="form-group"
 					th:class="${#fields.hasErrors('annoMorte')} ? 'form-group has-error' : 'form-group'">
@@ -186,17 +166,17 @@
 					</div> 
 				</div>
 			</form>
-			
+			</font>
 			 <div class="footer">
 		<div class="overlayer">
 			<div class="container">
 				<div class="row">
-					<div class="credits">&copy; Giacomo Bonnani---Sorin Oancea</div>
+					<div align="center" class="credits">&copy; Giacomo Bonnani---Sorin Oancea</div>
 				</div>
 			</div>
 		</div>
 	</div>
-  </div>	      
+ 	      
 	
 	
 	

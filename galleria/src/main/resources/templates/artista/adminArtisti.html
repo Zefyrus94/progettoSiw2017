@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<style> html { 
+  background: url('https://s-media-cache-ak0.pinimg.com/originals/c9/8b/7a/c98b7a769a04b08313f0d600ed8857e0.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+h1 {
+    font-size: 250%;
+}
+
+h2 {
+    font-size: 200%;
+}
+
+p,ul {
+    font-size: 300%;
+}
+
+</style>
+
+</head>
+
+<body text="white">
+
+				<a class="navbar-brand page-scroll" href="/">HOME</a>
+			
+
+			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    
+                    <li>
+                        <a class="page-scroll" href="/admin/opere">List of Works of art</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="/admin/artista">Insert an artist</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="/admin/opera">Insert a work of art</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/logout">Logout</a>
+                    </li>
+
+             
+                </ul>
+                </div>
+
+	<br></br><br></br><br></br><br></br>
+	<div>
+		<div class="container tim-container">
+			
+<blockquote class="blockquote blockquote">
+<h1 class="text-left">
+				<em>List of artists</em></h1>
+				  
+</blockquote>
+			<ul>
+				<div th:each="artista : ${artisti}">
+					<div class="row">
+						<div class="col-md-4 col-sm-4">
+
+							<a th:href="@{/artista/risultatiAU(id=${artista.id})}"> <img
+								th:src="${artista.url}" alt="Rounded Image"
+								style="height: 200px; width: 200px" class="img-rounded" /></a>
+						</div>
+						<div >
+							<div >
+								<h2 class="text-left">
+									<a th:text="${artista.nome} +' '+ ${artista.cognome}"
+										th:href="@{/autore/risultatiAU(id=${artista.id})}"></a>
+									<div class="space"></div>
+								</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ul>
+		</div>
+		<div class="space"></div>
+	</div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+	<div class="footer">
+		<div class="overlayer">
+			<div class="container">
+				<div class="row">
+					<div class="credits"> <div align="center">&copy; Giacomo Bonnani --- Sorin Oancea</div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
