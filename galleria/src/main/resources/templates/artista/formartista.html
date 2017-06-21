@@ -1,50 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-
-<style> html { 
+<meta charset="ISO-8859-1"/>
+<link rel="stylesheet" href="css/index.css" />
+<title>Work of art form</title>
+<style> /* html { 
   background: url('https://www.artsfon.com/pic/201602/1920x1200/artsfon.com-81003.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-h1 {
-    font-size: 250%;
-}
-
-h2 {
-    font-size: 200%;
-}
-
-p {
-    font-size: 100%;
-}
+} */
 </style>
+
 </head>
-
-<body text="white">
-
-	<ul>
-                    
-                    <li>
-                        <a class="page-scroll" href="/admin/artisti">List of artists</a>
-                    </li>
-         	 		<li><a class="page-scroll" href="/admin/opere">List of works of art</a></li>
-                   
-			 		<li><a class="page-scroll" href="/opere">Insert a work of art</a></li>
-                    <li>
-                        <a class="page-scroll" href="/logout">Logout</a>
-                    </li>
-	</ul>
-
-<br></br><br></br>		
-<blockquote class="blockquote blockquote">
-<font size="12"><h1 align="center" class="text-left">
-				<em>Artist</em></h1></font>
-				  
-</blockquote>
-
+<body>
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/news">News</a>
+  <a class="active" href="/contacts">Contact</a>
+  <a href="/user/artisti">Artists</a>
+  <a href="/admin/opere">Works of art</a>
+  <a href="/admin/artista">Insert an artist</a>
+  <a href="/logout">Logout</a>
+  <a href="/accedi_admin">Admin</a>
+</div>
 	
 	<form class="form-horizontal" action="#" th:action="@{/admin/artistainfo}" th:object="${artista}"
 		method="post">

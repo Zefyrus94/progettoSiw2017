@@ -1,64 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-<meta charset="utf-8" />
+<meta charset="ISO-8859-1"/>
+<link rel="stylesheet" href="css/index.css" />
+<title>Artists</title>
 <style> /* html { 
-  background: url('https://s-media-cache-ak0.pinimg.com/originals/c9/8b/7a/c98b7a769a04b08313f0d600ed8857e0.jpg') no-repeat center center fixed; 
+  background: url('https://www.artsfon.com/pic/201602/1920x1200/artsfon.com-81003.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 } */
-h1 {
-    font-size: 250%;
-}
-
-h2 {
-    font-size: 200%;
-}
-
-p,ul {
-    font-size: 300%;
-}
-
 </style>
 
 </head>
-
 <body text="white">
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="/news">News</a>
+  <a class="active" href="/contacts">Contact</a>
+  <a href="/admin/opere">List of Works of art</a>
+  <a href="/admin/artista">Insert an artist</a>
+  <a href="/admin/opera">Insert a work of art</a>
+  <a href="/logout">Logout</a>
+  <a href="/accedi_admin">Administrator</a>
+</div>
 
-				<a class="navbar-brand page-scroll" href="/">HOME</a>
-			
-
-			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-left">
-                    
-                    <li>
-                        <a class="page-scroll" href="/admin/opere">List of Works of art</a>
-                    </li>
-                     <li>
-                        <a class="page-scroll" href="/admin/artista">Insert an artist</a>
-                    </li>
-                     <li>
-                        <a class="page-scroll" href="/admin/opera">Insert a work of art</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/logout">Logout</a>
-                    </li>
-
-             
-                </ul>
-                </div>
-
-	<br></br><br></br><br></br><br></br>
-	<div>
-		<div class="container tim-container">
-			
-<blockquote class="blockquote blockquote">
-<h1 class="text-left">
-				<em>Artist</em></h1>
-				  
-</blockquote>
 			<ul>
 				<div th:each="artista : ${artisti}">
 					
@@ -70,9 +37,7 @@ p,ul {
 							
 				</div>
 			</ul>
-		</div>
-		<div class="space"></div>
-	</div>
+		
 
 	<div class="footer">
 		<div class="overlayer">
