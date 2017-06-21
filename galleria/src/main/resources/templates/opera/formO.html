@@ -57,12 +57,7 @@
 						</span>
 					</div>
 				</div>
-				<!-- non committa? -->
-				<span th:text="#{label.artista}">Artista:</span> <select
-					th:field="*{artista}">
-					<option th:each="artista : ${artisti}" th:value="${artista.id}"
-						th:text="${artista.nome} +' '+ ${artista.cognome}"></option>
-				</select>
+				
 				<div class="form-group"
 					th:class="${#fields.hasErrors('anno')} ? 'form-group has-error' : 'form-group'">
 					<label class="col-sm-2 control-label">Anno:</label>
@@ -75,6 +70,12 @@
 						</span>
 					</div>
 				</div>
+				<!-- non committa? -->
+				<span th:text="#{label.artista}">Artista:</span> <select
+					th:field="*{artista}">
+					<option th:each="artista : ${artisti}" th:value="${artista.id}"
+						th:text="${artista.nome} +' '+ ${artista.cognome}"></option>
+				</select>
 				<div class="form-group"
 					th:class="${#fields.hasErrors('tecnica')} ? 'form-group has-error' : 'form-group'">
 					<label class="col-sm-2 control-label">Tecnica:</label>
