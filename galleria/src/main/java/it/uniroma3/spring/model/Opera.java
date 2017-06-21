@@ -2,6 +2,7 @@ package it.uniroma3.spring.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 //@NamedQuery(name="findAll", query="SELECT o FROM opera o")
@@ -10,12 +11,16 @@ public class Opera implements Comparable<Opera>{
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;   
 	@NotNull
+	@Size(min=1)
 	private String titolo;
 	@NotNull
+//	@Size(min=3)
 	private int anno;
 	@NotNull
+	@Size(min=1)
 	private String tecnica;
 	@NotNull
+	@Size(min=1)
 	private String dimensione;
 	
     private String url;
