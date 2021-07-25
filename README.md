@@ -1,4 +1,4 @@
-Project for the "Web Information Systems" course project for the 2016-2017 academic year.
+"Web Information Systems" course project for the 2016-2017 academic year.
 
 Instructions to run the project
 
