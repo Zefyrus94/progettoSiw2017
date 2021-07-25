@@ -15,3 +15,5 @@ Instructions to run the project
 3. go to folder artgallery/galleria
 
 4. mvn spring-boot:run
+
+5. verify that your application has started on localhost:8080
