@@ -12,6 +12,6 @@ Instructions to run the project
 
 2. install [maven](https://maven.apache.org/install.html)
  
-3. go to folder progettoSiw2017-master/galleria
+3. go to folder artgallery/galleria
 
 4. mvn spring-boot:run
