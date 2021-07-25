@@ -4,11 +4,11 @@ Instructions to run the project
 
 1. create a database "artgallery"
  
-psql --username=postgres
+ psql --username=postgres
 
->postgres
+ >postgres
 
-CREATE DATABASE artgallery
+ CREATE DATABASE artgallery
 
 2. install [maven](https://maven.apache.org/install.html)
  
