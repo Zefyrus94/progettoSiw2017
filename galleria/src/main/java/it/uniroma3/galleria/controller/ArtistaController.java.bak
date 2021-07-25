@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import it.uniroma3.spring.model.Artista;
-import it.uniroma3.spring.model.User;
-import it.uniroma3.spring.service.ArtistaService;
-import it.uniroma3.spring.service.OperaService;
+import it.uniroma3.galleria.model.Artista;
+import it.uniroma3.galleria.model.User;
+import it.uniroma3.galleria.service.ArtistaService;
+import it.uniroma3.galleria.service.OperaService;
 
 @Controller
 public class ArtistaController {
