@@ -81,7 +81,7 @@ public class ArtistaController {
 
     @GetMapping("/admin/artista/cancella")
 	public ModelAndView deleteartista(@RequestParam("id")long id, Model model){
-		artistaService.delete(id);
+		artistaService.deleteById(id);
 		return new ModelAndView("redirect:/artisti");
 		}
     @GetMapping("artista/Home")

@@ -27,6 +27,10 @@ public class ArtistaService {
 		this.artistaRepository.delete(artist);
 	}
 	@Transactional
+	public void deleteById(long id){
+		this.artistaRepository.deleteById(id);
+	}
+	@Transactional
 	public void removeArtista(Artista Artista){
 		this.artistaRepository.delete(Artista);
 	}
