@@ -1,6 +1,10 @@
 "Web Information Systems" course project for the 2016-2017 academic year.
 
-Instructions to run the project
+#Prerequisites
+
+Make sure you have installed Maven and PostgreSQL>=9.6.19
+
+#Instructions to run the project
 
 1. create a database "artgallery"
  
